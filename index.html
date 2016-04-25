@@ -1077,6 +1077,8 @@ function updateBarChart(group, colorChosen) {
             .attr("fill", colorChosen)
             ;
         
+		var formatPercent = function(x) { return formatAsPercentage(x).replace(/\.0+%$/, "%"); };
+		
         plot.selectAll("text.yAxis") // target the text element(s) which has a yAxis class defined
             .data(currentDatasetBarChart)
             .transition()
@@ -1090,8 +1092,7 @@ function updateBarChart(group, colorChosen) {
            })
            .text(function(d) {
                 //return formatAsInteger(d3.round(d.measure)); // added , to larger population number
-                
-                  return formatAsPercentage (d.measure) ;
+                  return formatPercent(d.measure) ;
                  
            })
            .attr("class", "yAxis")                   
