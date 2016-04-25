@@ -9,9 +9,7 @@
     url("http://db.onlinewebfonts.com/t/f4c6ddb828ad47e76c91d3d5df56baaa.svg#LinotypeUniversW01-Thin") format("svg");
 }
 
-html{
-    height:100%;
-    }
+html{height:100%;}
 body 
     {
     font-family:"LinotypeUniversW01-Thin";
@@ -19,111 +17,61 @@ body
     background-color: #a1d99b;
     font-weight:bolder;
     }
+header {text-align: center;}
+h4,h2{ text-align: center; }
+label{font-size: 0.9em; }
 
-      h4,h2{
-      text-align: center;
-    }
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {
-  display: none;
-}
-
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-
-.germanytext, .argentinatext, .italytext, .braziltext, .spaintext, .francetext, .englandtext{
-  text-anchor:middle;
-  display:none;
-}
-
-#visualization1 
-    {
-      width:100%;
-    }   
-
-    #visualization2
+.x.axis path {display: none;}
+path.text{font-size: 12px;}
+.tick text{ font-size: 12px;  }
+.tick line{opacity: 0.2;}
+.axis path, .axis line 
+  {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+.line 
+  {
+    fill: none;
+    stroke: steelblue;
+    stroke-width: 1.5px;
+  }
+#visualization1 {width:100%;}   
+#visualization2
     {
       clear: both;
       width:100%;
       height:100%;
       margin-top: 40px;
+      text-align:center;
     }   
-
 #flags_column_one, #flags_column_two, #flags_column_three
-  {
-      
+  {  
       display: inline-block;
-    /* border:1px solid black;*/
       position: relative;
       margin:0 auto;
-
   }
-
-
 #flags_wrapper
-{
-  margin:0 auto;
-  text-align: center;
-  width:1350px;
-  height:100%;
-}
-
-header
-    {
+  {
+    margin:0 auto;
     text-align: center;
-    }
-
-
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-path.text{
-  font-size: 12px;
-}
- .tick text{
-    font-size: 12px;
+    width:1350px;
+    height:100%;
+  } 
+.germanytext, .argentinatext, .italytext, .braziltext, .spaintext, .francetext, .englandtext
+  {
+    text-anchor:middle;
+    display:none;
   }
 
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-
-#checkboxes{
-
-margin-top: 20px;
+#checkboxes
+{
+  margin-top: 20px;
   text-align: center;
 }
 
-#visualization2{
-  text-align: center;
-}
-
- .tick line{
-    opacity: 0.2;
-  }
-
-  label{
-
-    font-size: 0.9em;
-  }
-
+  
 
 /* --------------------------- JING CSS ------------------ */
 
@@ -137,7 +85,6 @@ margin-top: 20px;
 }
 
 #barChart {
-
  
  /* top:100px;
   left:460px;*/
@@ -153,10 +100,8 @@ margin-top: 20px;
    font-weight: bold; 
       } 
       
-
 .title {
   font-family: Verdana;
     font-size: 15px;  
-    
 }
   
