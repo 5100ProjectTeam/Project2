@@ -8,14 +8,15 @@ body
 h4,h2,h1{ text-align: center; }
 h4.bigger_note{font-size:0.8em;}
 h2{font-weight: 1900;}
+h1.viz1header{margin:50px 0px 10px 0px;}
+h4.note{font-size: 0.7em;}
 label
   {
   font-size: 0.9em;
   font-family: "Trebuchet MS", Helvetica, sans-serif;  
   padding-left:10px;
   }
-h1.viz1header{margin:50px 0px 10px 0px;}
-h4.note{font-size: 0.7em;}
+
 text{ font-family: "Trebuchet MS", Helvetica, sans-serif; font-weight: lighter; }
 .x.axis path {display: none;}
 path.text{font-size: 12px;}
@@ -70,6 +71,11 @@ path.text{font-size: 12px;}
 }
 
 /* --------------------------- JING CSS ------------------ */
+.bar {fill: orange;}
+.bar:hover {fill: orangered ;}
+.italics{font-style: italic;}
+#text_gdp{margin-bottom:30px;}
+#text_culture p{font-weight:lighter;}
 
 #pieChart {
   margin:50px 10px 10px 130px;
@@ -77,8 +83,6 @@ path.text{font-size: 12px;}
   height: 400px;
   display:inline-block;
   text-align: center;
- 
-
 }
 .h2{
   color: steelblue;
@@ -106,25 +110,14 @@ path.text{font-size: 12px;}
 
 .slice {
    font-size: 12pt;
-  /* font-family: Verdana;*/
    fill: white; //svg specific - instead of color
    font-weight: bold;
       }
 
 .title {
-  /* font-family: Verdana;*/
     font-size: 15px;
     font-weight: bold;
 }
-  .bar {
-  fill: orange;
-}
-
-.bar:hover {
-  fill: orangered ;
-}
-
-.italics{font-style: italic;}
 
 #text_culture, #text_gdp, p.conclusion
 {
@@ -133,10 +126,8 @@ path.text{font-size: 12px;}
   margin: 0 auto;
  border-top:2px solid black;
  border-bottom: 2px solid black;
-
 }
-#text_gdp{margin-bottom:30px;}
-#text_culture p{font-weight:lighter;}
+
 
 /* --------------- KELLEY CSS ---------------- */
 #player, #plot{text-align: center;}
@@ -147,7 +138,6 @@ path.text{font-size: 12px;}
 .Yaxis text { font-size: small; }
 .Yaxis line { stroke: black; }
 .Yaxis path { fill: none; stroke: black;}
-/*image {opacity: 1.5} */
 path.residual { stroke: black; opacity: 0.2; stroke-width: 5; }
 path.square { fill: black; opacity: 0.0; }
 .d3-tip {
@@ -158,5 +148,4 @@ path.square { fill: black; opacity: 0.0; }
   color: #fff;
   border-radius: 2px;
 }
-
 .tooltip{font-size: 1.2em; }

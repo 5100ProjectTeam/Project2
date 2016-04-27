@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <title>INFO 5100: Project 2</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>INFO 5100: Project 2</title>
         <link rel="stylesheet" type="text/css" href="style.css">
         <link rel="stylesheet" href="bootstrap.min.css"><!-- Minified CSS -->
-        <script src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </head>
     <body>
 
@@ -55,6 +55,7 @@
     </div>
 
       <h1 class="title_star">Number of Star Players in Each Team</h1>
+      <h4 class="bigger_note">(Hover over the circles to see Who!)</h4>
       <div id="plot2"></div>
       <div id="player"></div>
       <h1> Conceptual Representation of Football Culture </h1> 
@@ -719,7 +720,10 @@
 
 });
 
-/* --------------------------------- VISUALIZATION 4 --------------------------------------- */
+/* ---------------------------------------------- VISUALIZATION 3 --------------------------------------------- */
+/* ----------------------------------------------                 --------------------------------------------- */
+/* ----------------------------------------------                 --------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------ */
 
     var svg_height = 700;
     var svg_width = 1300;
@@ -1047,23 +1051,23 @@
     }
    // JQuery for displaying the information of each player when mouseover. 4/26 edit
 
-$(".tooltip").attr("data-toggle", "tooltip"); // adding data-toggle attr to each circle
-
-// select the all element with data-toggle = "tooltip" to create tooltip
-$('[data-toggle="tooltip"]').tooltip({
-    'container': 'body',
-    'placement': 'top'
-});
-
-    
+    $(".tooltip").attr("data-toggle", "tooltip"); // adding data-toggle attr to each circle
+    // select the all element with data-toggle = "tooltip" to create tooltip
+    $('[data-toggle="tooltip"]').tooltip({
+        'container': 'body',
+        'placement': 'top'
+    });   
 
 });
-/* ------------------------------------------- VISUALIZATION 3 ----------------------------------------------- 
-/*
-################ FORMATS ##################
--------------------------------------------
-*/
+/* ---------------------------------------------- VISUALIZATION 4 --------------------------------------------- */
+/* ----------------------------------------------                 --------------------------------------------- */
+/* ----------------------------------------------                 --------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------ */
+ /*
 
+                                    ################ FORMATS ##################
+                                    -------------------------------------------
+ */
 
 var     formatAsPercentage = d3.format(".2%"),
         formatAsInteger = d3.format(","),
@@ -1076,81 +1080,68 @@ var     formatAsPercentage = d3.format(".2%"),
         ;
 
 /*
-############# PIE CHART ###################
--------------------------------------------
+                                ############# PIE CHART ###################
+                                -------------------------------------------
 */
 
 
-          
-
 function dsPieChart(){
 
-    var dataset = [
+     var dataset = [
           {category: "Players", measure: 1},
           {category: "Stadiums", measure: 1},
           {category: "U20 Cups", measure: 1},
-          ]
-          ;
+          ];
+          
 
-    var width = 400,
+     var width = 400,
            height = 400,
            outerRadius = Math.min(width, height) / 2,
            innerRadius = outerRadius * .999,   
            // for animation
            innerRadiusFinal = outerRadius * .5,
            innerRadiusFinal3 = outerRadius* .45,
-           color = d3.scale.category20()    //builtin range of colors
-           ;
-     
-
-          
-             
-    var vis = d3.select("#pieChart")
-         .append("svg:svg")              //create the SVG element inside the <body>
-         .data([dataset])                   //associate our data with the document
-         .attr("width", width)           //set the width and height of our visualization (these will be attributes of the <svg> tag
-         .attr("height", height)
-         .append("svg:g")                //make a group to hold our pie chart
-         .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")")    //move the center of the pie chart from 0, 0 to radius, radius
-                ;   
-    
+           color = d3.scale.category20() ;   //builtin range of colors
            
-               
+          
+     var vis = d3.select("#pieChart")
+         .append("svg:svg")     //create the SVG element inside the <body>
+         .data([dataset]) //associate our data with the document
+         .attr("width", width) //set the width and height of our visualization (these will be attributes of the <svg> tag
+         .attr("height", height)
+         .append("svg:g")  //make a group to hold our pie chart
+         .attr("transform", "translate(" + outerRadius + "," + outerRadius + ")") ;  //move the center of the pie chart from 0, 0 to radius, radius     
                 
-   var arc = d3.svg.arc()              //this will create <path> elements for us using arc data
+     var arc = d3.svg.arc()  //this will create <path> elements for us using arc data
             .outerRadius(outerRadius).innerRadius(innerRadius);
    
             // for animation
-    var arcFinal = d3.svg.arc().innerRadius(innerRadiusFinal).outerRadius(outerRadius);
-    var arcFinal3 = d3.svg.arc().innerRadius(innerRadiusFinal3).outerRadius(outerRadius);
+     var arcFinal = d3.svg.arc().innerRadius(innerRadiusFinal).outerRadius(outerRadius);
+     var arcFinal3 = d3.svg.arc().innerRadius(innerRadiusFinal3).outerRadius(outerRadius);
 
-   var pie = d3.layout.pie()           //this will create arc data for us given a list of values
-        .value(function(d) { return d.measure; });    //we must tell it out to access the value of each element in our data array
+     var pie = d3.layout.pie()  //this will create arc data for us given a list of values
+        .value(function(d) { return d.measure; }); //we must tell it out to access the value of each element in our data array
 
-
-        
-        
-   var arcs = vis.selectAll("g.slice")     //this selects all <g> elements with class slice (there aren't any yet)
-        .data(pie)                          //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties) 
-        .enter()                            //this will create <g> elements for every "extra" data element that should be associated with a selection. The result is creating a <g> for every object in the data array
-        .append("svg:g")                //create a group to hold each slice (we will have a <path> and a <text> element associated with each slice)
-        .attr("class", "slice")    //allow us to style things in the slices (like text)
+     var arcs = vis.selectAll("g.slice")//this selects all <g> elements with class slice (there aren't any yet)
+        .data(pie)   //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties) 
+        .enter()  //this will create <g> elements for every "extra" data element that should be associated with a selection. The result is creating a <g> for every object in the data array
+        .append("svg:g")  //create a group to hold each slice (we will have a <path> and a <text> element associated with each slice)
+        .attr("class", "slice")//allow us to style things in the slices (like text)
         .on("mouseover", mouseover)
         .on("mouseout", mouseout)
         .on("click", up)
         ;
                     
         arcs.append("svg:path")
-             .attr("fill", function(d, i) { return color(i); } ) //set the color for each slice to be chosen from the color function defined above
-             .attr("d", arc)     //this creates the actual SVG path using the associated data (pie) with the arc drawing function
-             .append("svg:title") //mouseover title showing the figures
-             .text(function(d) { return d.data.category + ": " + formatAsPercentage(d.data.measure); });            
+            .attr("fill", function(d, i) { return color(i); } ) //set the color for each slice to be chosen from the color function defined above
+            .attr("d", arc)     //this creates the actual SVG path using the associated data (pie) with the arc drawing function
+            .append("svg:title") //mouseover title showing the figures
+            .text(function(d) { return d.data.category + ": " + formatAsPercentage(d.data.measure); });            
 
         d3.selectAll("g.slice").selectAll("path").transition()
                 .duration(750)
                 .delay(10)
-                .attr("d", arcFinal)
-                ;
+                .attr("d", arcFinal);
     
       // Add a label to the larger arcs, translated to the arc centroid and rotated.
       // source: http://bl.ocks.org/1305337#index.html
@@ -1159,16 +1150,14 @@ function dsPieChart(){
           .attr("dy", ".35em")
           .attr("text-anchor", "middle")
           .attr("transform", function(d) { return "translate(" + arcFinal.centroid(d) + ")rotate(" + angle(d) + ")"; })
-          .text(function(d) { return d.data.category; })
-          ;
+          .text(function(d) { return d.data.category; });
        
        // Computes the label angle of an arc, converting from radians to degrees.
         function angle(d) {
             var a = (d.startAngle + d.endAngle) * 90 / Math.PI - 90;
             return a > 90 ? a - 180 : a;
         }
-            
-        
+                
         // Pie chart center text            
      vis.append("svg:text")
           .attr("dy", ".35em")
@@ -1179,33 +1168,23 @@ function dsPieChart(){
     
     function mouseover() {
       d3.select(this).select("path").transition()
-          .duration(750)
-                    //.attr("stroke","red")
-                    //.attr("stroke-width", 1.5)
-           .attr("d", arcFinal3)
-                    ;
+        .duration(750)
+        .attr("d", arcFinal3);               
     }
     
     function mouseout() {
       d3.select(this).select("path").transition()
-          .duration(750)
-                    //.attr("stroke","blue")
-                    //.attr("stroke-width", 1.5)
-                    .attr("d", arcFinal)
-                    ;
+          .duration(750)  
+          .attr("d", arcFinal);                    
     }
-    
+
     function up(d, i) {
                 /* update bar chart when user selects piece of the pie chart */
-                //updateBarChart(dataset[i].category);
-                updateBarChart(d.data.category, color(i));
-             
+                updateBarChart(d.data.category, color(i));           
     }
 }
 
-
 dsPieChart();
-
 
 /*
 ############# BAR CHART ###################
@@ -1318,14 +1297,12 @@ function dsBarChart() {
             .append("svg")
             .attr("width", width + margin.left + margin.right)
             .attr("height", height + margin.top + margin.bottom)
-            .attr("id","barChartPlot")
-            ;
+            .attr("id","barChartPlot");    
     
     var plot = svg
             .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-            ;
-                
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+                    
     plot.selectAll("rect")
            .data(firstDatasetBarChart)
            .enter()
@@ -1340,9 +1317,7 @@ function dsBarChart() {
             .attr("height", function(d) {
                 return height-yScale(d.measure);
             })
-            .attr("fill", "lightgrey")
-            ;
-    
+            .attr("fill", "lightgrey");
         
     // Add y labels to plot 
     plot.selectAll("text")
@@ -1361,20 +1336,13 @@ function dsBarChart() {
     .attr("y", function(d) {
             return yScale(d.measure) + 14;
     })
-    .attr("class", "yAxis")
-    /* moved to CSS            
-    .attr("font-family", "sans-serif")
-    .attr("font-size", "11px")
-    .attr("fill", "white")
-    */
-    ;
+    .attr("class", "yAxis") ;
     
     // Add x labels to chart    
     
     var xLabels = svg
             .append("g")
-            .attr("transform", "translate(" + margin.left + "," + (margin.top + height)  + ")")
-            ;
+            .attr("transform", "translate(" + margin.left + "," + (margin.top + height)  + ")");
     
     xLabels.selectAll("text.xAxis")
           .data(firstDatasetBarChart)
@@ -1387,9 +1355,7 @@ function dsBarChart() {
               return (i * (width / firstDatasetBarChart.length)) + ((width / firstDatasetBarChart.length - barPadding) / 2);
                            })
           .attr("y", 15)
-          .attr("class", "xAxis")
-          //.attr("style", "font-size: 12; font-family: Helvetica, sans-serif")
-          ;         
+          .attr("class", "xAxis") ;         
      
     // Title
     svg.append("text")
@@ -1397,8 +1363,7 @@ function dsBarChart() {
         .attr("y", 15)
         .attr("class","title")              
         .attr("text-anchor", "middle")
-        .text("Population")
-        ;
+        .text("Population");
 }
 
 dsBarChart();
@@ -1422,19 +1387,16 @@ function updateBarChart(group, colorChosen) {
         
         var xScale = d3.scale.linear()
             .domain([0, currentDatasetBarChart.length])
-            .range([0, width])
-            ;
+            .range([0, width]) ;
             
         var yScale = d3.scale.linear()
           .domain([0, d3.max(currentDatasetBarChart, function(d) { return d.measure; })])
-          .range([height,0])
-          ;
+          .range([height,0]) ;
           
        var svg = d3.select("#barChart svg");
           
        var plot = d3.select("#barChartPlot")
-        .datum(currentDatasetBarChart)
-           ;
+        .datum(currentDatasetBarChart) ;
     
             /* Note that here we only have to select the elements - no more appending! */
         plot.selectAll("rect")
@@ -1451,8 +1413,7 @@ function updateBarChart(group, colorChosen) {
             .attr("height", function(d) {
                 return height-yScale(d.measure);
             })
-            .attr("fill", colorChosen)
-            ;
+            .attr("fill", colorChosen)  ;
         
         var formatPercent = function(x) { return formatAsPercentage(x).replace(/\.0+%$/, "%"); };
         
@@ -1472,14 +1433,12 @@ function updateBarChart(group, colorChosen) {
                   return formatPercent(d.measure) ;
                  
            })
-           .attr("class", "yAxis")                   
-        ;
-        
+           .attr("class", "yAxis")  ;
         
         
         var arr = ["Football Players vs Population in Each Country", 
-            "Mega Stadium Capacity vs Population in Each Country", 
-        "U20 World Cups Earned by Each Country"];
+                   "Mega Stadium Capacity vs Population in Each Country", 
+                    "U20 World Cups Earned by Each Country"];
         
         var map = new Object();
         map["Players"] = arr[0];
@@ -1494,13 +1453,10 @@ function updateBarChart(group, colorChosen) {
             .attr("y", 15)
             .attr("class","title")
             .attr("text-anchor", "middle")
-            .text(get(group));
-        ;
+            .text(get(group)); ;
 }
 
 
-
 </script>
-<!-- Font Credits: <a href="http://www.onlinewebfonts.com">oNline Web Fonts</a> -->
 </body>
 </html>
