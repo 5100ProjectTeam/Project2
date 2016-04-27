@@ -21,8 +21,9 @@
 
     <div id="visualization1">
     	<h1 class="viz1header">FIFA WORLD CUP TEAMS OVER THE YEARS</h1>
-        <h4>(Click on each of the flags to find out more and then scroll down)</h4>
+        <h4 class="bigger_note">(Click on each of the flags to find out more)</h4>
         <h4 class="note"> * Number of wins are calculated post 1960 due to non-availability of certain data needed for further analysis, before 1960 </h4>
+
     	<div id="flags_wrapper">
             <div id="flags_column_one">   
 	             <div id="germany"></div>
@@ -41,15 +42,15 @@
     </div> 
     <div id="visualization2">
         <h1> Does the GPD affect team's performance? </h1>
-        <h4> (Click on the checkboxes to plot the graphs) </h4>
+        <h4 class="bigger_note"> (Click on the checkboxes below to plot the graphs) </h4>
         <h4 class="note"> * GDP starts post 1960 due to non-availability of data before 1960. Also data N/A for the years 1960 and 1964 (Germany) </h4>
          <div id="text_gdp">
         <p>
             
         </p>
+
         </div>
-    </div>
-    <div id="checkboxes">
+            <div id="checkboxes">
          <label> <input type="checkbox"  id="Germany_button" value="Germany"/> Germany </label>
          <label> <input type="checkbox"  id="Argentina_button"  value="Argentina"/> Argentina </label>
          <label> <input type="checkbox"  id="Italy_button"  value="Italy"/> Italy </label>
@@ -57,8 +58,10 @@
          <label> <input type="checkbox"  id="France_button"  value="France"/> France </label>
          <label> <input type="checkbox"  id="England_button"  value="England"/> England </label>
          <label> <input type="checkbox"  id="Spain_button" value="Spain"/> Spain </label>
+            </div>
     </div>
-     <h1>Number of Star Players in Each Team</h1>
+
+     <h1 class="title_star">Number of Star Players in Each Team</h1>
       <div id="plot2"></div>
       <div id="player"></div>
     <h1> Conceptual Representation of Football Culture </h1> 
@@ -71,6 +74,11 @@
     </div>
     <div id="pieChart"></div>
     <div id="barChart"></div>  
+    
+    <h1> Conclusion </h1>
+        <p class="conclusion">
+        </p>
+   
         <script type="text/javascript">
 
 /* ------------------------------------------- VISUALIZATION 1 ----------------------------------------------- */
@@ -513,6 +521,7 @@
             $(".spaintext").show(1000);
     }); 
 });
+
 
         /* ------------------------------------------- VISUALIZATION 2 ------------------------------------- */
 
@@ -1440,7 +1449,7 @@ function dsBarChart() {
         .attr("y", 15)
         .attr("class","title")              
         .attr("text-anchor", "middle")
-        .text("Popultation")
+        .text("Population")
         ;
 }
 
