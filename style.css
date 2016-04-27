@@ -78,12 +78,12 @@ path.text{font-size: 12px;}
 /* --------------------------- JING CSS ------------------ */
 
 #pieChart {
-  padding:50px 10px 10px 150px;
+  margin:50px 10px 10px 130px;
   width:400px;
   height: 400px;
   display:inline-block;
   text-align: center;
-  margin:0 auto;
+  border:1px solid black;
 
 }
 .h2{
@@ -105,9 +105,11 @@ path.text{font-size: 12px;}
 #barChart {
   text-align: center;
   display: inline-block;
-  margin:0 auto;
-  padding-left: 180px;
+  border:1px solid black;
+  position:relative;
 }
+
+#barChart svg{margin-bottom: 50px;}
 
 .slice {
    font-size: 12pt;

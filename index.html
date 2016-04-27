@@ -625,7 +625,7 @@
                         .attr("stroke-dashoffset", totalLength)
                         .attr("id", type)
                         .transition()
-                        .duration(1050) 
+                        .duration(1000) 
                         .ease("linear") 
                         .attr("stroke-dashoffset", 0); 
 
@@ -647,10 +647,10 @@
                               .filter(function(d){return d.name===type;})
                               .datum(function(d){ return d.values; })
                               .attr("class", "circle")
+                              .transition()
+                              .delay(k*75)
                               .attr("id",type)
                               .attr("r",5)
-                              .transition()
-                              .delay(1000)
                               .attr("cx", function(d){ return xScale(d[k].year);})     
                               .attr("cy", function(d){ return yScale(d[k].gdp);})
                               .style("stroke","black")
@@ -665,10 +665,11 @@
                                .datum(function(d){ return d.values; })
                                .attr('xlink:href','images/trophy.png')
                                .attr("id",type)
+                               .transition()
+                               .delay(l*75)
                                .attr("width",30)
                                .attr("height",30)
-                               .transition()
-                               .delay(1000)
+                               
                                .attr('x',function(d)
                                 {
                                      if(d[l].year_won == type)
