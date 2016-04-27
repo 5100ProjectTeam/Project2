@@ -1,48 +1,45 @@
-@import url(http://db.onlinewebfonts.com/c/f4c6ddb828ad47e76c91d3d5df56baaa?family=LinotypeUniversW01-Thin);
-
-@font-face {font-family: "LinotypeUniversW01-Thin";
-    src: url("http://db.onlinewebfonts.com/t/f4c6ddb828ad47e76c91d3d5df56baaa.eot");
-    src: url("http://db.onlinewebfonts.com/t/f4c6ddb828ad47e76c91d3d5df56baaa.eot?#iefix") format("embedded-opentype"),
-    url("http://db.onlinewebfonts.com/t/f4c6ddb828ad47e76c91d3d5df56baaa.woff2") format("woff2"),
-    url("http://db.onlinewebfonts.com/t/f4c6ddb828ad47e76c91d3d5df56baaa.woff") format("woff"),
-    url("http://db.onlinewebfonts.com/t/f4c6ddb828ad47e76c91d3d5df56baaa.ttf") format("truetype"),
-    url("http://db.onlinewebfonts.com/t/f4c6ddb828ad47e76c91d3d5df56baaa.svg#LinotypeUniversW01-Thin") format("svg");
-}
-
 html{height:100%;}
-body
+body 
     {
-    font-family:"LinotypeUniversW01-Thin"!important;
     margin:0 auto;
     font-weight:bolder;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     }
-header {text-align: center;}
-h1{padding:20px;font-weight:900;text-align: center;}
+    header {
+      text-align: center;
+    
+}
+h1
+{
+  padding:20px;
+  text-align: center; 
+ }
 h4,h2{ text-align: center; }
 h2{font-weight: 1900;}
-label{font-size: 0.9em; }
+label{font-size: 0.9em;  font-family: "Trebuchet MS", Helvetica, sans-serif;  }
 
+text{ font-family: "Trebuchet MS", Helvetica, sans-serif;  }
 .x.axis path {display: none;}
 path.text{font-size: 12px;}
-.tick text{ font-size: 12px;  }
 .tick line{opacity: 0.2;}
-.axis path, .axis line
+.tick text{ font-size: 12px;}
+
+.axis path, .axis line 
   {
     fill: none;
     stroke: #000;
     shape-rendering: crispEdges;
   }
-.line
+.line 
   {
     fill: none;
     stroke: steelblue;
     stroke-width: 1.5px;
   }
-#visualization1
+#visualization1 
 {
   width:100%;
-font-family:"LinotypeUniversW01-Thin";
-}
+}   
 #visualization2
     {
       clear: both;
@@ -50,11 +47,9 @@ font-family:"LinotypeUniversW01-Thin";
       height:100%;
       margin-top: 40px;
       text-align:center;
-      font-family:"LinotypeUniversW01-Thin";
-
-    }
+    }   
 #flags_column_one, #flags_column_two, #flags_column_three
-  {
+  {  
       display: inline-block;
       position: relative;
       margin:0 auto;
@@ -65,7 +60,7 @@ font-family:"LinotypeUniversW01-Thin";
     text-align: center;
     width:1350px;
     height:100%;
-  }
+  } 
 .germanytext, .argentinatext, .italytext, .braziltext, .spaintext, .francetext, .englandtext
   {
     text-anchor:middle;
