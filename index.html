@@ -2,25 +2,19 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>INFO 5100: Project 2</title>
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="bootstrap.min.css"><!-- Minified CSS -->
+        <script src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
         <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Minified CSS -->
-        <link rel="stylesheet" href="bootstrap.min.css">
-        <script src="js/bootstrap.min.js"></script>
-
-        <link href="//db.onlinewebfonts.com/c/f4c6ddb828ad47e76c91d3d5df56baaa?family=LinotypeUniversW01-Thin" rel="stylesheet" type="text/css"/>
-
-
-
     </head>
     <body>
 
     <div id="visualization1">
-    	<h1 class="viz1header">FIFA WORLD CUP TEAMS OVER THE YEARS</h1>
+    	<h1 class="viz1header">FIFA WORLD CUP TEAMS OVER THE YEARS (1960 - 2014) </h1>
         <h4 class="bigger_note">(Click on each of the flags to find out more)</h4>
         <h4 class="note"> * Number of wins are calculated post 1960 due to non-availability of certain data needed for further analysis, before 1960 </h4>
 
@@ -48,9 +42,8 @@
         <p>
             
         </p>
-
         </div>
-            <div id="checkboxes">
+         <div id="checkboxes">
          <label> <input type="checkbox"  id="Germany_button" value="Germany"/> Germany </label>
          <label> <input type="checkbox"  id="Argentina_button"  value="Argentina"/> Argentina </label>
          <label> <input type="checkbox"  id="Italy_button"  value="Italy"/> Italy </label>
@@ -58,20 +51,21 @@
          <label> <input type="checkbox"  id="France_button"  value="France"/> France </label>
          <label> <input type="checkbox"  id="England_button"  value="England"/> England </label>
          <label> <input type="checkbox"  id="Spain_button" value="Spain"/> Spain </label>
-            </div>
+         </div>
     </div>
 
-     <h1 class="title_star">Number of Star Players in Each Team</h1>
+      <h1 class="title_star">Number of Star Players in Each Team</h1>
       <div id="plot2"></div>
       <div id="player"></div>
-    <h1> Conceptual Representation of Football Culture </h1> 
-    <div id="text_culture">
+      <h1> Conceptual Representation of Football Culture </h1> 
+      <div id="text_culture">
         <p>
             Football culture is analyzed through three indexes: percentage of registered and unregistered players among the general population; percentage of the total stadium capacity as measured against the total population of the country; percentage of U20 World Cups won by each country against the total number of U20 Cups. The data come from <a href="http://www.fifa.com/worldfootball/bigcount/index.html" class="italics">FIFA’s 2006 Big Count report.</a>
             
             It seems all the seven countries have roughly similar percentage of football players, apps. 7%, with the exception of Germany 19.8%. Stadium capacty per capita fall within a narrow range amount these seven countries. On the other hand, Brazil and Argentina seem to have reaped a significant portion of U20 winners. 
         </p>
     </div>
+
     <div id="pieChart"></div>
     <div id="barChart"></div>  
     
@@ -83,750 +77,740 @@
 
 /* ------------------------------------------- VISUALIZATION 1 ----------------------------------------------- */
 
-         var svg1 = d3.select("#germany").append("svg")
-        .attr("width", 500)
-        .attr("height",200);
+     var svg1 = d3.select("#germany").append("svg")
+    .attr("width", 500)
+    .attr("height",200);
 
 
-         var svg2 = d3.select("#argentina").append("svg")
-        .attr("width", 500)
-        .attr("height",200);
+     var svg2 = d3.select("#argentina").append("svg")
+    .attr("width", 500)
+    .attr("height",200);
 
 
-         var svg3 = d3.select("#italy").append("svg")
-        .attr("width", 500)
-        .attr("height",200);
+     var svg3 = d3.select("#italy").append("svg")
+    .attr("width", 500)
+    .attr("height",200);
 
 
-        var svg4 = d3.select("#brazil").append("svg")
-        .attr("width", 300)
-        .attr("height",500);
+    var svg4 = d3.select("#brazil").append("svg")
+    .attr("width", 300)
+    .attr("height",500);
 
-         var svg5 = d3.select("#france").append("svg")
-        .attr("width", 500)
-        .attr("height",200);
+     var svg5 = d3.select("#france").append("svg")
+    .attr("width", 500)
+    .attr("height",200);
 
-         var svg6 = d3.select("#england").append("svg")
-        .attr("width", 500)
-        .attr("height",200);
+     var svg6 = d3.select("#england").append("svg")
+    .attr("width", 500)
+    .attr("height",200);
 
-	    var svg7 = d3.select("#spain").append("svg")
-        .attr("width", 500)
-        .attr("height",200);
+    var svg7 = d3.select("#spain").append("svg")
+    .attr("width", 500)
+    .attr("height",200);
 
-        $(document).ready(function(){
+    $(document).ready(function(){
+
+   /* Germany */
+
+    svg1.append('svg:image')
+    .attr('xlink:href', 'images/germany.png')
+    .attr("class","germanypic")
+    .attr("width", 170)
+    .attr("height", 170)
+    .attr("x", 90)
+    .attr("y", 0);
     
-       /* Germany */
+ 	svg1.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","germany1")
+    .attr("width", 40)
+    .attr("height", 60)
+    .attr("transform","translate(45,25)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(45,25), rotate(-50)")
+    .ease("linear");
+
+    svg1.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","germany2")
+    .attr("width", 40)
+    .attr("height", 70)
+		.attr("transform","translate(45,15), rotate(-50)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(30,110), rotate(-90)")
+    .ease("linear");
+
+     svg1.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","germany3")
+    .attr("width", 40)
+    .attr("height", 70)
+		.attr("transform","translate(45,15), rotate(-50)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(72,190), rotate(-130)")
+    .ease("linear");
+
+    svg1.append("text")
+    .attr("class","germanytext")
+    .text("GERMANY")
+    .style("font-weight","bold")
+    .attr("transform","translate(360,50)");
+
+    svg1.append("text")
+    .attr("class","germanytext")
+    .text("Years Won:")
+    .attr("transform","translate(360,70)");
+
+    svg1.append("text")
+    .attr("class","germanytext")
+    .text("1974: Germany 2-1 Netherlands")
+    .attr("transform","translate(360,90)");
+
+    svg1.append("text")
+    .attr("class","germanytext")
+    .text("1990: Germany 1-0 Argentina")
+    .attr("transform","translate(360,110)");
+
+    svg1.append("text")
+    .attr("class","germanytext")
+    .text("2014: Germany 1-0 Argentina")
+    .attr("transform","translate(360,130)");
+
+    $(".germanypic").click(function(){
+         $(".germanytext").show(1000);
+     }); 
+
+
+    /* Argentina */
+
+     svg2.append('svg:image')
+    .attr('xlink:href', 'images/argentina.png')
+    .attr("class","argentinapic")
+    .attr("width", 170)
+    .attr("height", 170)
+    .attr("x", 90)
+    .attr("y", 0);
+    
+ 	svg2.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","argentina1")
+    .attr("width", 40)
+    .attr("height", 70)
+    .attr("transform","translate(40,45)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(40,45), rotate(-50)")
+    .ease("linear");
  
-        svg1.append('svg:image')
-        .attr('xlink:href', 'images/germany.png')
-        .attr("class","germanypic")
-        .attr("width", 170)
-	    .attr("height", 170)
-	    .attr("x", 90)
-	    .attr("y", 0);
-        
-	 	svg1.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","germany1")
-        .attr("width", 40)
-	    .attr("height", 60)
-	    .attr("transform","translate(45,25)")
-	    .transition()
-	    .duration(500)
-	    .attr("transform","translate(45,25), rotate(-50)")
-	    .ease("linear");
+     svg2.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","argentina2")
+    .attr("width", 40)
+    .attr("height", 70)
+	.attr("transform","translate(40, 45), rotate(-50)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(60,160), rotate(-120)")
+    .ease("linear");
+   
+     svg2.append("text")
+    .text("ARGENTINA")
+    .style("font-weight","bold")
+    .attr("class","argentinatext")
+    .attr("transform","translate(350,50)");
 
-	    svg1.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","germany2")
-        .attr("width", 40)
-	    .attr("height", 70)
- 		.attr("transform","translate(45,15), rotate(-50)")
-        .transition()
-        .duration(500)
-        .attr("transform","translate(30,110), rotate(-90)")
-        .ease("linear");
+	svg2.append("text")
+    .text("Years Won:")
+    .attr("class","argentinatext")
+    .attr("transform","translate(350,70)");
 
-         svg1.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","germany3")
-        .attr("width", 40)
-	    .attr("height", 70)
- 		.attr("transform","translate(45,15), rotate(-50)")
-        .transition()
-        .duration(500)
-        .attr("transform","translate(72,190), rotate(-130)")
-        .ease("linear");
+    svg2.append("text")
+    .text("1978: Argentina 3-1 Netherlands")
+    .attr("class","argentinatext")
+    .attr("transform","translate(350,90)");
 
-        svg1.append("text")
-            .attr("class","germanytext")
-            .text("GERMANY")
-            .style("font-weight","bold")
-            .attr("transform","translate(360,50)");
+     svg2.append("text")
+    .text("1986: Argentina 3-2 Germany")
+    .attr("class","argentinatext")
+    .attr("transform","translate(350,110)");
 
-        svg1.append("text")
-        .attr("class","germanytext")
-        .text("Years Won:")
-        .attr("transform","translate(360,70)");
+      $(".argentinapic").click(function(){
+          $(".argentinatext").show(1000);
+        }); 
 
-        svg1.append("text")
-        .attr("class","germanytext")
-        .text("1974: Germany 2-1 Netherlands")
-        .attr("transform","translate(360,90)");
 
-        svg1.append("text")
-        .attr("class","germanytext")
-        .text("1990: Germany 1-0 Argentina")
-        .attr("transform","translate(360,110)");
 
-        svg1.append("text")
-        .attr("class","germanytext")
-        .text("2014: Germany 1-0 Argentina")
-        .attr("transform","translate(360,130)");
+    /* Italy*/
 
+     svg3.append('svg:image')
+    .attr('xlink:href', 'images/italy.png')
+    .attr("class","italypic")
+    .attr("width", 170)
+    .attr("height", 170)
+    .attr("x", 90)
+    .attr("y", 0);
+   
+ 	svg3.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","italy1")
+    .attr("width", 40)
+    .attr("height", 70)
+    .attr("transform","translate(40,45)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(40,45), rotate(-50)")
+    .ease("linear");
+
+     svg3.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","italy2")
+    .attr("width", 40)
+    .attr("height", 70)
+	.attr("transform","translate(40, 45), rotate(-50)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(60,160), rotate(-120)")
+    .ease("linear");
+
+     svg3.append("text")
+    .text("ITALY")
+    .style("font-weight","bold")
+    .attr("class","italytext")
+    .attr("transform","translate(350,50)");
+
+	svg3.append("text")
+    .text("Years Won:")
+    .attr("class","italytext")
+    .attr("transform","translate(350,70)");
+
+    svg3.append("text")
+    .text("1982: Italy 3-1 Germany")
+    .attr("class","italytext")
+    .attr("transform","translate(350,90)");
+
+     svg3.append("text")
+    .text("2006: Italy 1-1 (5-3p) France")
+    .attr("class","italytext")
+    .attr("transform","translate(350,110)");     
+
+    $(".italypic").click(function(){
+         $(".italytext").show(1000);
+    }); 
+
+    /* Brazil */
+
+     svg4.append('svg:image')
+    .attr('xlink:href', 'images/brazil.png')
+    .attr("class","brazilpic")
+    .attr("width", 170)
+    .attr("height", 170)
+    .attr("x", 65)
+    .attr("y", 100);
+  
+	 	svg4.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","brazil1")
+    .attr("width", 40)
+    .attr("height", 70)
+    .attr("transform","translate(50,80), rotate(-40)");
     
-        $(".germanypic").click(function(){
-        $(".germanytext").show(1000);
+     svg4.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","brazil2")
+    .attr("width", 40)
+    .attr("height", 70)
+    .attr("transform","translate(50, 80), rotate(-40)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(108,45), rotate(-10)")
+    .ease("linear");
+  
+     svg4.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","brazil3")
+    .attr("width", 40)
+    .attr("height", 70)
+    .attr("transform","translate(50,80), rotate(-40)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(175,40), rotate(20)")
+    .ease("linear");
+
+     svg4.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","brazil4")
+    .attr("width", 40)
+    .attr("height", 70)
+    .attr("transform","translate(50,75), rotate(-40)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(235,60), rotate(50)")
+    .ease("linear");
+
+   	 svg4.append("text")
+    .text("BRAZIL")
+    .style("font-weight","bold")
+    .attr("class","braziltext")
+    .attr("transform","translate(150,280)");
+
+	svg4.append("text")
+    .text("Years Won:")
+    .attr("class","braziltext")
+    .attr("transform","translate(150,300)");
+
+    svg4.append("text")
+    .text("1962: Brazil 3-1 Czechoslovakia")
+    .attr("class","braziltext")
+    .attr("transform","translate(150,320)");
+
+	svg4.append("text")
+    .text("1970: Brazil 4-1 Italy")
+    .attr("class","braziltext")
+    .attr("transform","translate(150,340)");
+    
+     svg4.append("text")
+    .text("1994: Brazil 3-2 Italy")
+    .attr("class","braziltext")
+    .attr("transform","translate(150,360)");
+    
+     svg4.append("text")
+    .text("2002: Brazil 2-0 Germany")
+    .attr("class","braziltext")
+    .attr("transform","translate(150,380)");
+   
+
+    $(".brazilpic").click(function(){
+          $(".braziltext").show(1000);
     }); 
+    /* France */
 
+      svg5.append('svg:image')
+    .attr('xlink:href', 'images/france.png')
+    .attr("class","francepic")
+    .attr("width", 170)
+    .attr("height", 170)
+    .attr("x", 250)
+    .attr("y", 0);
+  
+ 	svg5.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","france1")
+    .attr("width", 40)
+    .attr("height", 70)
+    .attr("transform","translate(375,0)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(435,0), rotate(45)")
+    .ease("linear");       
 
+     svg5.append("text")
+    .text("FRANCE")
+    .style("font-weight","bold")
+    .attr("class","francetext")
+    .attr("transform","translate(180,50)");
+   
+	svg5.append("text")
+    .text("Years Won:")
+    .attr("class","francetext")
+    .attr("transform","translate(180,70)");
+    
 
-        /* Argentina */
-
-         svg2.append('svg:image')
-        .attr('xlink:href', 'images/argentina.png')
-        .attr("class","argentinapic")
-        .attr("width", 170)
-	    .attr("height", 170)
-	    .attr("x", 90)
-	    .attr("y", 0);
-        
-	 	svg2.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","argentina1")
-        .attr("width", 40)
-	    .attr("height", 70)
-	    .attr("transform","translate(40,45)")
-	    .transition()
-	    .duration(500)
-	    .attr("transform","translate(40,45), rotate(-50)")
-	    .ease("linear");
-     
-         svg2.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","argentina2")
-        .attr("width", 40)
-	    .attr("height", 70)
-    	.attr("transform","translate(40, 45), rotate(-50)")
-        .transition()
-        .duration(500)
-        .attr("transform","translate(60,160), rotate(-120)")
-        .ease("linear");
-       
-         svg2.append("text")
-        .text("ARGENTINA")
-        .style("font-weight","bold")
-        .attr("class","argentinatext")
-        .attr("transform","translate(350,50)");
-
-		svg2.append("text")
-        .text("Years Won:")
-        .attr("class","argentinatext")
-        .attr("transform","translate(350,70)");
-
-        svg2.append("text")
-        .text("1978: Argentina 3-1 Netherlands")
-        .attr("class","argentinatext")
-        .attr("transform","translate(350,90)");
-
-	     svg2.append("text")
-        .text("1986: Argentina 3-2 Germany")
-        .attr("class","argentinatext")
-        .attr("transform","translate(350,110)");
-
-          $(".argentinapic").click(function(){
-        $(".argentinatext").show(1000);
-    }); 
-
-
-
-        /* Italy*/
-
-         svg3.append('svg:image')
-        .attr('xlink:href', 'images/italy.png')
-        .attr("class","italypic")
-        .attr("width", 170)
-	    .attr("height", 170)
-	    .attr("x", 90)
-	    .attr("y", 0);
-       
-	 	svg3.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","italy1")
-        .attr("width", 40)
-	    .attr("height", 70)
-	    .attr("transform","translate(40,45)")
-	    .transition()
-	    .duration(500)
-	    .attr("transform","translate(40,45), rotate(-50)")
-	    .ease("linear");
-
-         svg3.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","italy2")
-        .attr("width", 40)
-	    .attr("height", 70)
-    	.attr("transform","translate(40, 45), rotate(-50)")
-        .transition()
-        .duration(500)
-        .attr("transform","translate(60,160), rotate(-120)")
-        .ease("linear");
-
-         svg3.append("text")
-        .text("ITALY")
-        .style("font-weight","bold")
-        .attr("class","italytext")
-        .attr("transform","translate(350,50)");
-
-		svg3.append("text")
-        .text("Years Won:")
-        .attr("class","italytext")
-        .attr("transform","translate(350,70)");
-
-        svg3.append("text")
-        .text("1982: Italy 3-1 Germany")
-        .attr("class","italytext")
-        .attr("transform","translate(350,90)");
-
-	     svg3.append("text")
-        .text("2006: Italy 1-1 (5-3p) France")
-        .attr("class","italytext")
-        .attr("transform","translate(350,110)");     
-
-	 $(".italypic").click(function(){
-        $(".italytext").show(1000);
-    }); 
-
-        /* Brazil */
-
-         svg4.append('svg:image')
-        .attr('xlink:href', 'images/brazil.png')
-        .attr("class","brazilpic")
-        .attr("width", 170)
-	    .attr("height", 170)
-	    .attr("x", 65)
-	    .attr("y", 100);
-      
-  	 	svg4.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","brazil1")
-        .attr("width", 40)
-	    .attr("height", 70)
-        .attr("transform","translate(50,80), rotate(-40)");
-        
-	     svg4.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","brazil2")
-        .attr("width", 40)
-	    .attr("height", 70)
-        .attr("transform","translate(50, 80), rotate(-40)")
-        .transition()
-        .duration(500)
-        .attr("transform","translate(108,45), rotate(-10)")
-        .ease("linear");
-	  
-	     svg4.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","brazil3")
-        .attr("width", 40)
-	    .attr("height", 70)
-        .attr("transform","translate(50,80), rotate(-40)")
-        .transition()
-        .duration(500)
-        .attr("transform","translate(175,40), rotate(20)")
-        .ease("linear");
-
-         svg4.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","brazil4")
-        .attr("width", 40)
-	    .attr("height", 70)
-        .attr("transform","translate(50,75), rotate(-40)")
-        .transition()
-        .duration(500)
-        .attr("transform","translate(235,60), rotate(50)")
-        .ease("linear");
-
-       	 svg4.append("text")
-        .text("BRAZIL")
-        .style("font-weight","bold")
-        .attr("class","braziltext")
-        .attr("transform","translate(150,280)");
-
-		svg4.append("text")
-        .text("Years Won:")
-        .attr("class","braziltext")
-        .attr("transform","translate(150,300)");
-
-        svg4.append("text")
-        .text("1962: Brazil 3-1 Czechoslovakia")
-        .attr("class","braziltext")
-        .attr("transform","translate(150,320)");
-
-		svg4.append("text")
-        .text("1970: Brazil 4-1 Italy")
-        .attr("class","braziltext")
-        .attr("transform","translate(150,340)");
-        
-         svg4.append("text")
-        .text("1994: Brazil 3-2 Italy")
-        .attr("class","braziltext")
-        .attr("transform","translate(150,360)");
-        
-         svg4.append("text")
-        .text("2002: Brazil 2-0 Germany")
-        .attr("class","braziltext")
-        .attr("transform","translate(150,380)");
-       
-
-        $(".brazilpic").click(function(){
-        $(".braziltext").show(1000);
-    }); 
-        /* France */
-
-          svg5.append('svg:image')
-        .attr('xlink:href', 'images/france.png')
-        .attr("class","francepic")
-        .attr("width", 170)
-	    .attr("height", 170)
-	    .attr("x", 250)
-	    .attr("y", 0);
-      
-	 	svg5.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","france1")
-        .attr("width", 40)
-	    .attr("height", 70)
-        .attr("transform","translate(375,0)")
-        .transition()
-        .duration(500)
-        .attr("transform","translate(435,0), rotate(45)")
-        .ease("linear");       
-
-         svg5.append("text")
-        .text("FRANCE")
-        .style("font-weight","bold")
-        .attr("class","francetext")
-        .attr("transform","translate(180,50)");
-       
-		svg5.append("text")
-        .text("Years Won:")
-          .attr("class","francetext")
-        .attr("transform","translate(180,70)");
-        
-
-         svg5.append("text")
-        .text("1998: France 3-0 Brazil")
-          .attr("class","francetext")
-        .attr("transform","translate(180,90)");
-        
-
-        $(".francepic").click(function(){
+     svg5.append("text")
+    .text("1998: France 3-0 Brazil")
+    .attr("class","francetext")
+    .attr("transform","translate(180,90)");
+    
+    $(".francepic").click(function(){
         $(".francetext").show(1000);
     }); 
 
+		/* England */
 
- 		/* England */
+		  svg6.append('svg:image')
+    .attr('xlink:href', 'images/england.png')
+    .attr("class","englandpic")
+    .attr("width", 170)
+    .attr("height", 170)
+    .attr("x", 250)
+    .attr("y", 0);
+  
+ 	svg6.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","england1")
+    .attr("width", 40)
+    .attr("height", 70)
+    .attr("transform","translate(375,0)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(435,0), rotate(45)")
+    .ease("linear"); 
 
- 		  svg6.append('svg:image')
-        .attr('xlink:href', 'images/england.png')
-        .attr("class","englandpic")
-        .attr("width", 170)
-	    .attr("height", 170)
-	    .attr("x", 250)
-	    .attr("y", 0);
-      
-	 	svg6.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","england1")
-        .attr("width", 40)
-	    .attr("height", 70)
-        .attr("transform","translate(375,0)")
-        .transition()
-        .duration(500)
-        .attr("transform","translate(435,0), rotate(45)")
-        .ease("linear"); 
+     svg6.append("text")
+    .text("ENGLAND")
+    .style("font-weight","bold")
+    .attr("class","englandtext")
+    .attr("transform","translate(180,50)");
 
-         svg6.append("text")
-        .text("ENGLAND")
-        .style("font-weight","bold")
-        .attr("class","englandtext")
-        .attr("transform","translate(180,50)");
+	svg6.append("text")
+    .text("Years Won:")
+    .attr("class","englandtext")
+    .attr("transform","translate(180,70)");
 
-		svg6.append("text")
-        .text("Years Won:")
-        .attr("class","englandtext")
-        .attr("transform","translate(180,70)");
+     svg6.append("text")
+    .text("1966: England 4-2 Germany")
+    .attr("class","englandtext")
+    .attr("transform","translate(180,90)");
 
-         svg6.append("text")
-        .text("1966: England 4-2 Germany")
-        .attr("class","englandtext")
-        .attr("transform","translate(180,90)");
-      
-
-        $(".englandpic").click(function(){
-        $(".englandtext").show(1000);
+    $(".englandpic").click(function(){
+       $(".englandtext").show(1000);
     }); 
 
 
-        /* Spain */
+    /* Spain */
 
-          svg7.append('svg:image')
-        .attr('xlink:href', 'images/spain.png')
-        .attr("class","spainpic")
-        .attr("width", 170)
-	    .attr("height", 170)
-	    .attr("x", 250)
-	    .attr("y", 0);
-       
-	 	svg7.append('svg:image')
-        .attr('xlink:href', 'images/trophy.png')
-        .attr("class","spain1")
-        .attr("width", 40)
-	    .attr("height", 70)
-        .attr("transform","translate(380,0)")
-        .transition()
-        .duration(500)
-        .attr("transform","translate(440,0), rotate(45)")
-        .ease("linear"); 
+      svg7.append('svg:image')
+    .attr('xlink:href', 'images/spain.png')
+    .attr("class","spainpic")
+    .attr("width", 170)
+    .attr("height", 170)
+    .attr("x", 250)
+    .attr("y", 0);
+   
+ 	svg7.append('svg:image')
+    .attr('xlink:href', 'images/trophy.png')
+    .attr("class","spain1")
+    .attr("width", 40)
+    .attr("height", 70)
+    .attr("transform","translate(380,0)")
+    .transition()
+    .duration(500)
+    .attr("transform","translate(440,0), rotate(45)")
+    .ease("linear"); 
 
-         svg7.append("text")
-        .text("SPAIN")
-        .style("font-weight","bold")
-        .attr("class","spaintext")
-        .attr("transform","translate(170,50)");
-      
-		svg7.append("text")
-        .text("Years Won:")
-        .attr("class","spaintext")
-        .attr("transform","translate(170,70)");
+     svg7.append("text")
+    .text("SPAIN")
+    .style("font-weight","bold")
+    .attr("class","spaintext")
+    .attr("transform","translate(170,50)");
+  
+	svg7.append("text")
+    .text("Years Won:")
+    .attr("class","spaintext")
+    .attr("transform","translate(170,70)");
 
-         svg7.append("text")
-        .text("2010: Spain 1-0 Netherlands")
-        .attr("class","spaintext")
-        .attr("transform","translate(170,90)");
+     svg7.append("text")
+    .text("2010: Spain 1-0 Netherlands")
+    .attr("class","spaintext")
+    .attr("transform","translate(170,90)");
 
-        $(".spainpic").click(function(){
-            $(".spaintext").show(1000);
-    }); 
+    $(".spainpic").click(function(){
+        $(".spaintext").show(1000);
+      }); 
 });
 
 
         /* ------------------------------------------- VISUALIZATION 2 ------------------------------------- */
 
 
-        var margin = {top: 20, right: 80, bottom: 30, left: 150};
-        var width = 800 - margin.left - margin.right
-        var height = 500 - margin.top - margin.bottom;
-        var type = [];
-   
-
-        var xScale = d3.scale.linear()
-               .range([0, width]);
-
-        var yScale = d3.scale.linear()
-               .range([height, 0]);
-
-          
-        var color = d3.scale.ordinal()
-                      .domain(["Germany", "Argentina", "Italy", "Brazil","France","England","Spain"])
-                      .range(["#E7BA52", "#9ECAE1" , "#D62728","#74C476","#FD8D3C","#843C39","#393B79"]);
-        
-        var formatNumber = d3.format(".2f"),
-        formatTrillion = function(x) { return formatNumber(x / 1e12) + " T"; };
-        formatBillion = function(x) { return formatNumber(x / 1e9) + " B"; },
-        formatMillion = function(x) { return formatNumber(x / 1e6) + " M"; },
-        formatThousand = function(x) { return formatNumber(x / 1e3) + " k"; };
-
-        function formatAbbreviation(x) {
-          var v = Math.abs(x);
-          return (v >= .9995e12 ? formatTrillion
-                  : v >= .9995e9 ? formatBillion
-                  : v >= .9995e6 ? formatMillion
-                  : formatThousand)(x);
-        }
+    var margin = {top: 20, right: 80, bottom: 30, left: 150};
+    var width = 800 - margin.left - margin.right
+    var height = 500 - margin.top - margin.bottom;
+    var type = [];
 
 
-        var xAxis = d3.svg.axis()
-            .scale(xScale)
-            .orient("bottom")
-            .tickFormat(d3.format("d"))
-            .innerTickSize(-height)
-            .outerTickSize(0)
-            .tickPadding(10)
-            .tickValues([1962, 1966, 1970, 1974, 1978, 1982, 1986, 1990, 1994, 1998, 2002, 2006, 2010, 2014]);
+    var xScale = d3.scale.linear()
+           .range([0, width]);
 
-        var yAxis = d3.svg.axis()
-            .scale(yScale)
-            .orient("left")
-            .innerTickSize(-width)
-            .outerTickSize(0)
-            .tickPadding(10)
-            .ticks(10)
-            .tickFormat(function(d) { return formatAbbreviation(d).replace('B', ' Billion').replace('T',' Trillion'); });
+    var yScale = d3.scale.linear()
+           .range([height, 0]);
 
-        var line = d3.svg.line()
-            .x(function(d) { return xScale(d.year); })
-            .y(function(d) { return yScale(d.gdp); });
+      
+    var color = d3.scale.ordinal()
+                  .domain(["Germany", "Argentina", "Italy", "Brazil","France","England","Spain"])
+                  .range(["#E7BA52", "#9ECAE1" , "#D62728","#74C476","#FD8D3C","#843C39","#393B79"]);
+    
+    var formatNumber = d3.format(".2f"),
+    formatTrillion = function(x) { return formatNumber(x / 1e12) + " T"; };
+    formatBillion = function(x) { return formatNumber(x / 1e9) + " B"; },
+    formatMillion = function(x) { return formatNumber(x / 1e6) + " M"; },
+    formatThousand = function(x) { return formatNumber(x / 1e3) + " k"; };
 
-        var svg8 = d3.select("#visualization2").append("svg")
-            .attr("width", width + margin.left + margin.right)
-            .attr("height", height + margin.top + margin.bottom)
-            .append("g")
-            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    function formatAbbreviation(x) {
+      var v = Math.abs(x);
+      return (v >= .9995e12 ? formatTrillion
+              : v >= .9995e9 ? formatBillion
+              : v >= .9995e6 ? formatMillion
+              : formatThousand)(x);
+    }
 
 
-        d3.csv("GDP.csv", function(error, data) 
-        {
-                  var countries = color.domain().map(function(name) {
-                    return {
-                              name: name,
-                              values: data.map(function(d) 
-                                    {
-                                    return {year: d.year, gdp: +d[name] , year_won : d.year_won };
-                                    })
-                             };
-                  }); 
+    var xAxis = d3.svg.axis()
+        .scale(xScale)
+        .orient("bottom")
+        .tickFormat(d3.format("d"))
+        .innerTickSize(-height)
+        .outerTickSize(0)
+        .tickPadding(10)
+        .tickValues([1962, 1966, 1970, 1974, 1978, 1982, 1986, 1990, 1994, 1998, 2002, 2006, 2010, 2014]);
 
-                xScale.domain([1962, 2018]);
-                yScale.domain([
-                    d3.min(countries, function(c) { return d3.min(c.values, function(v) { return v.gdp; }); }),
-                    d3.max(countries, function(c) { return d3.max(c.values, function(v) { return v.gdp; }); })
-                  ]);
+    var yAxis = d3.svg.axis()
+        .scale(yScale)
+        .orient("left")
+        .innerTickSize(-width)
+        .outerTickSize(0)
+        .tickPadding(10)
+        .ticks(10)
+        .tickFormat(function(d) { return formatAbbreviation(d).replace('B', ' Billion').replace('T',' Trillion'); });
 
-                svg8.append("g")
-                  .attr("class", "x axis")
-                  .attr("transform", "translate(0," + height + ")")
-                  .call(xAxis);
+    var line = d3.svg.line()
+        .x(function(d) { return xScale(d.year); })
+        .y(function(d) { return yScale(d.gdp); });
 
-                svg8.append("g")
-                  .attr("class", "y axis")
-                  .call(yAxis)
-                  .append("text")
-                  .attr("transform", "rotate(-90)")
-                  .attr("y", 6)
-                  .attr("dy", ".71em")
-                  .style("text-anchor", "end")
-                  .text("GDP ($)");
-              
-                var country = svg8.selectAll(".country")
-                  .data(countries)
-                  .enter().append("g")
-                  .attr("class", "country");
+    var svg8 = d3.select("#visualization2").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-                 d3.selectAll("input[type=checkbox]").on("change", function()
-                 {
-                    type = this.value;
-                     if (this.checked == true)
-                    {
-                           var path = country.append("path")
-                          .attr("class", "line")
-                          .filter(function(d){return d.name===type;})
-                          .attr("d", function(d) { return line(d.values); })
-                          .style("stroke", function(d) { return color(d.name); });
-                         
-                   
-                          var totalLength = path.node().getTotalLength();
-                      
-                        path.attr("stroke-dasharray", totalLength + " " + totalLength)
-                        .attr("stroke-dashoffset", totalLength)
-                        .attr("id", type)
-                        .transition()
-                        .duration(1000) 
-                        .ease("linear") 
-                        .attr("stroke-dashoffset", 0); 
 
-                          country.append("text")
-                          .filter(function(d){return d.name===type;})
-                          .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
-                          .attr("transform", function(d) { return "translate(" + xScale(d.value.year) + "," + yScale(d.value.gdp) + ")"; })
-                          .attr("x", 5)
-                          .attr("id", type)
-                          .attr("dy", ".35em")
-                          .style("font-size","0.9em")
-                          .text(function(d) { return d.name; });
-
-                            var circle;
-
-                            for (var k = 0; k <14; k++) 
-                            {
-                               circle = country.append("circle")
-                              .filter(function(d){return d.name===type;})
-                              .datum(function(d){ return d.values; })
-                              .attr("class", "circle")
-                              .transition()
-                              .delay(k*75)
-                              .attr("id",type)
-                              .attr("r",5)
-                              .attr("cx", function(d){ return xScale(d[k].year);})     
-                              .attr("cy", function(d){ return yScale(d[k].gdp);})
-                              .style("stroke","black")
-                              .style("fill","none");
-                             }
- 
-                           
-                              for (var l = 0; l <14; l++) 
-                             {
-                               country.append('svg:image')
-                              .filter(function(d){return d.name===type;})
-                               .datum(function(d){ return d.values; })
-                               .attr('xlink:href','images/trophy.png')
-                               .attr("id",type)
-                               .transition()
-                               .delay(l*75)
-                               .attr("width",30)
-                               .attr("height",30)
-                               
-                               .attr('x',function(d)
+    d3.csv("GDP.csv", function(error, data) 
+    {
+              var countries = color.domain().map(function(name) {
+                return {
+                          name: name,
+                          values: data.map(function(d) 
                                 {
-                                     if(d[l].year_won == type)
-                                     return xScale(d[l].year) + -15;
-                                     else return -999999;
-                                     
+                                return {year: d.year, gdp: +d[name] , year_won : d.year_won };
                                 })
-                               .attr('y',function(d){
-                                    if(d[l].year_won == type)
-                                    return yScale(d[l].gdp) + -15;
-                                else return -999999;
+                         };
+              }); 
 
-                               })
-                               .attr("dx","1em")
-                               .attr("dy","1em");
-                               }
+            xScale.domain([1962, 2018]);
+            yScale.domain([
+                d3.min(countries, function(c) { return d3.min(c.values, function(v) { return v.gdp; }); }),
+                d3.max(countries, function(c) { return d3.max(c.values, function(v) { return v.gdp; }); })
+              ]);
 
-                            for (var k = 0; k <14; k++) 
-                             {
-                               circle = country.append("circle")
-                              .filter(function(d){return d.name===type;})
-                              .datum(function(d){ return d.values; })
-                              .attr("class", "tooltip")
-                              .attr("r",10)
-                              .attr("cx", function(d){ return xScale(d[k].year);})     
-                              .attr("cy", function(d){ return yScale(d[k].gdp);})
-                              .attr("title", function(d){ return "$" + formatAbbreviation(d[k].gdp); } )
-                              .style("stroke","black")
-                              .style("opacity",0)
-                              .style("fill","red");
-                             }
-                     }
-                    else {
-                        country.selectAll("#" + type).remove(); 
-                         country.selectAll(".tooltip").remove(); 
-                     }
-               $(".tooltip").attr("data-toggle", "tooltip"); // adding data-toggle attr to each circle
+            svg8.append("g")
+              .attr("class", "x axis")
+              .attr("transform", "translate(0," + height + ")")
+              .call(xAxis);
 
-// select the all element with data-toggle = "tooltip" to create tooltip
-                $('[data-toggle="tooltip"]').tooltip({
+            svg8.append("g")
+              .attr("class", "y axis")
+              .call(yAxis)
+              .append("text")
+              .attr("transform", "rotate(-90)")
+              .attr("y", 6)
+              .attr("dy", ".71em")
+              .style("text-anchor", "end")
+              .text("GDP ($)");
+          
+            var country = svg8.selectAll(".country")
+              .data(countries)
+              .enter().append("g")
+              .attr("class", "country");
+
+             d3.selectAll("input[type=checkbox]").on("change", function()
+             {
+                type = this.value;
+                 if (this.checked == true)
+                {
+                     var path = country.append("path")
+                     .attr("class", "line")
+                     .filter(function(d){return d.name===type;})
+                     .attr("d", function(d) { return line(d.values); })
+                     .style("stroke", function(d) { return color(d.name); });
+                     
+                     var totalLength = path.node().getTotalLength();
+                  
+                     path.attr("stroke-dasharray", totalLength + " " + totalLength)
+                     .attr("stroke-dashoffset", totalLength)
+                     .attr("id", type)
+                     .transition()
+                     .duration(1000) 
+                     .ease("linear") 
+                     .attr("stroke-dashoffset", 0); 
+
+                     country.append("text")
+                     .filter(function(d){return d.name===type;})
+                     .datum(function(d) { return {name: d.name, value: d.values[d.values.length - 1]}; })
+                     .attr("transform", function(d) { return "translate(" + xScale(d.value.year) + "," + yScale(d.value.gdp) + ")"; })
+                     .attr("x", 5)
+                     .attr("id", type)
+                     .attr("dy", ".35em")
+                     .style("font-size","0.9em")
+                     .text(function(d) { return d.name; });
+
+                     var circle;
+
+                        for (var k = 0; k <14; k++) 
+                        {
+                           circle = country.append("circle")
+                          .filter(function(d){return d.name===type;})
+                          .datum(function(d){ return d.values; })
+                          .attr("class", "circle")
+                          .transition()
+                          .delay(k*75)
+                          .attr("id",type)
+                          .attr("r",5)
+                          .attr("cx", function(d){ return xScale(d[k].year);})     
+                          .attr("cy", function(d){ return yScale(d[k].gdp);})
+                          .style("stroke","black")
+                          .style("fill","none");
+                         }
+                       
+                          for (var l = 0; l <14; l++) 
+                         {
+                           country.append('svg:image')
+                          .filter(function(d){return d.name===type;})
+                           .datum(function(d){ return d.values; })
+                           .attr('xlink:href','images/trophy.png')
+                           .attr("id",type)
+                           .transition()
+                           .delay(l*75)
+                           .attr("width",30)
+                           .attr("height",30)
+                           .attr('x',function(d)
+                            {
+                                 if(d[l].year_won == type)
+                                 return xScale(d[l].year) + -15;
+                                 else return -999999;
+                                 
+                            })
+                           .attr('y',function(d){
+                                if(d[l].year_won == type)
+                                return yScale(d[l].gdp) + -15;
+                            else return -999999;
+
+                           })
+                           .attr("dx","1em")
+                           .attr("dy","1em");
+                           }
+
+                        for (var k = 0; k <14; k++) 
+                         {
+                           circle = country.append("circle")
+                          .filter(function(d){return d.name===type;})
+                          .datum(function(d){ return d.values; })
+                          .attr("class", "tooltip")
+                          .attr("r",10)
+                          .attr("cx", function(d){ return xScale(d[k].year);})     
+                          .attr("cy", function(d){ return yScale(d[k].gdp);})
+                          .attr("title", function(d){ return "$" + formatAbbreviation(d[k].gdp); } )
+                          .style("stroke","black")
+                          .style("opacity",0)
+                          .style("fill","red");
+                         }
+                 }
+                else {
+                    country.selectAll("#" + type).remove(); 
+                     country.selectAll(".tooltip").remove(); 
+                 }
+           $(".tooltip").attr("data-toggle", "tooltip"); // adding data-toggle attr to each circle
+                $('[data-toggle="tooltip"]').tooltip({// select the all element with data-toggle = "tooltip" to create tooltip
                     'container': 'body',
                     'placement': 'top'
                 });
+        }); 
 
-            }); 
-
-    });
+});
 
 /* --------------------------------- VISUALIZATION 4 --------------------------------------- */
 
-var svg_height = 700;
-var svg_width = 1300;
-var svg_padding = 50;
-var paddingtop = 100; // between country flags and x axis line;
-var label_padding = 25; //between axis labels and axis line
+    var svg_height = 700;
+    var svg_width = 1300;
+    var svg_padding = 50;
+    var paddingtop = 100; // between country flags and x axis line;
+    var label_padding = 25; //between axis labels and axis line
 
-var xScale1;
-var yScale1;
+    var xScale1;
+    var yScale1;
 
-var players;
+    var players;
 
-var playerinfo;
+    var playerinfo;
 
-var teams;
-var years;
-var uniqueTeams;
-var uniqueYears;
+    var teams;
+    var years;
+    var uniqueTeams;
+    var uniqueYears;
 
-var firstappear,secondappear,thirdappear,fourthappear,fifthappear;
+    var firstappear,secondappear,thirdappear,fourthappear,fifthappear;
 
-var blocksBrazil = [];
-var blocksGermany = [];
-var blocksItaly = [];
-var blocksSpain = [];
-var blocksArgentina = [];
-var blocksFrance = [];
-var blocksEngland = [];
+    var blocksBrazil = [];
+    var blocksGermany = [];
+    var blocksItaly = [];
+    var blocksSpain = [];
+    var blocksArgentina = [];
+    var blocksFrance = [];
+    var blocksEngland = [];
 
-var circles;
-var b;
+    var circles;
+    var b;
 
-var svg = d3.select("#plot2").append("svg")
-.attr("height", svg_height)
-.attr("width", svg_width+30)
-.attr("class","graph2svg");
+    var svg = d3.select("#plot2").append("svg")
+    .attr("height", svg_height)
+    .attr("width", svg_width+30)
+    .attr("class","graph2svg");
 
 
-
-d3.csv("player_ranking.csv", function (error, data) {
-    players = data;
-    //console.log(data);
-    firstappear = players.map(function (player) {
+    d3.csv("player_ranking.csv", function (error, data) 
+    {
+        players = data;
+        firstappear = players.map(function (player) 
+        {
         // Create shorter variable names
-        return {
-            x: player["national_teams"],
-            y: player["1st_world_cup_appearance"],
-            label: player["player "]
-        };
-    })
-    .filter(function (point) {
+            return {
+                x: player["national_teams"],
+                y: player["1st_world_cup_appearance"],
+                label: player["player "]
+            };
+        })
+    
+        .filter(function (point) {
         // we only consider the records after 1960
         return !(point.x == "") && !(point.y == "") && (Number(point.y) >1960);
-    });
+        });
 
-    //console.log(firstappear);console.log(firstappear);
-
-    secondappear = players.map(function (player) {
+        secondappear = players.map(function (player) 
+        {
         // Create shorter variable names
-        return {
-            x: player["national_teams"],
-            y: player["2ed_world_cup_appearance"],
-            label: player["player "]
-        };
-    })
-    .filter(function (point) {
-        // Some countries are missing one or more data fields,
-        //  so silently drop them. Sorry Belgium!
-        return !(point.x == "") && !(point.y == "") && (Number(point.y) >1960);
-    });
-
-    //console.log(secondappear);
-
-    thirdappear = players.map(function (player) {
-        // Create shorter variable names
-        return {
-            x: player["national_teams"],
-            y: player["3rd_world_cup_appearance"],
-            label: player["player "]
-        };
-    })
-    .filter(function (point) {
-        // Some countries are missing one or more data fields,
-        //  so silently drop them. Sorry Belgium!
-        return !(point.x == "") && !(point.y == "") && (Number(point.y) >1960);
-    });
-
-    fourthappear = players.map(function (player) {
+            return {
+                x: player["national_teams"],
+                y: player["2ed_world_cup_appearance"],
+                label: player["player "]
+            };
+        })
         
-        return {
+        .filter(function (point) {
+        // Some countries are missing one or more data fields,
+        //  so silently drop them. Sorry Belgium!
+        return !(point.x == "") && !(point.y == "") && (Number(point.y) >1960);
+        });
+
+         thirdappear = players.map(function (player) 
+         {
+        // Create shorter variable names
+            return {
+                x: player["national_teams"],
+                y: player["3rd_world_cup_appearance"],
+                label: player["player "]
+             };
+         })
+
+    .filter(function (point) {
+        // Some countries are missing one or more data fields,
+        //  so silently drop them. Sorry Belgium!
+        return !(point.x == "") && !(point.y == "") && (Number(point.y) >1960);
+    });
+
+    fourthappear = players.map(function (player) 
+    {    
+         return {
             x: player["national_teams"],
             y: player["4th_world_cup_appearance"],
             label: player["player "]
@@ -838,7 +822,8 @@ d3.csv("player_ranking.csv", function (error, data) {
         return !(point.x == "") && !(point.y == "") && (Number(point.y) >1960);
     });
 
-    fifthappear = players.map(function (player) {
+    fifthappear = players.map(function (player) 
+    {
         // Create shorter variable names
         return {
             x: player["national_teams"],
@@ -846,6 +831,7 @@ d3.csv("player_ranking.csv", function (error, data) {
             label: player["player "]
         };
     })
+
     .filter(function (point) {
         // Some countries are missing one or more data fields,
         //  so silently drop them. Sorry Belgium!
@@ -853,8 +839,7 @@ d3.csv("player_ranking.csv", function (error, data) {
     });
     //combine all the players' information into one array
     playerinfo = firstappear.concat(secondappear).concat(thirdappear).concat(fourthappear).concat(fifthappear);
-    
-
+   
     teams = playerinfo.map(function (player){
         return player.x;
     });
@@ -889,8 +874,6 @@ d3.csv("player_ranking.csv", function (error, data) {
         }    
     }
 
-    //console.log(coordinates);
-
     var playersBrazil = [];
     var playersGermany = [];
     var playersItaly = [];
@@ -903,43 +886,27 @@ d3.csv("player_ranking.csv", function (error, data) {
         for(var i = 0; i<uniqueYears.length; i++){
             if ((player.y == uniqueYears[i]) && (player.x == "Brazil" )){
                 playersBrazil.push(player);
-                //console.log(player);
             }
-
             if ((player.y == uniqueYears[i]) && (player.x == "Germany" )){
-                playersGermany.push(player);
-                //console.log(player);
+                playersGermany.push(player);                
             }
-
             if ((player.y == uniqueYears[i]) && (player.x == "Italy" )){
                 playersItaly.push(player);
-                //console.log(player);
             }
-
             if ((player.y == uniqueYears[i]) && (player.x == "Spain" )){
-                playersSpain.push(player);
-                //console.log(player);
+                playersSpain.push(player);               
             }
-
             if ((player.y == uniqueYears[i]) && (player.x == "Argentina" )){
-                playersArgentina.push(player);
-                //console.log(player);
+                playersArgentina.push(player);               
             }
             if ((player.y == uniqueYears[i]) && (player.x == "England" )){
-                playersEngland.push(player);
-                //console.log(player);
+                playersEngland.push(player);               
             }
             if ((player.y == uniqueYears[i]) && (player.x == "France" )){
                 playersFrance.push(player);
-                //console.log(player);
             }
-
-
-        };
-    
+        }; 
     });
-
-    //console.log(playersBrazil);
 
     uniqueYears.forEach(function (year){
         var array1=[];
@@ -999,20 +966,15 @@ d3.csv("player_ranking.csv", function (error, data) {
         blocksEngland.push(array7);
         
     });
-    //console.log(blocksItaly);
     
     //X and Y Scales: 
     xScale1 = d3.scale.ordinal()
     .domain(uniqueTeams).rangeBands([svg_padding,svg_width-svg_padding], 0.28);
-    
-    //console.log(xScale);
 
     yScale1 = d3.scale.ordinal()
     .domain(years).rangeRoundBands([svg_height - svg_padding, paddingtop],0.3);
 
-
     var xAxis1 = d3.svg.axis().scale(xScale1).orient("top");
-
     var yAxis1 = d3.svg.axis().scale(yScale1).orient("left").ticks(13);
             
     svg.append("g")
@@ -1034,11 +996,9 @@ d3.csv("player_ranking.csv", function (error, data) {
 
 
     var color = d3.scale.ordinal()
-    .range(["#9ecae1", "#74c476", "#d62728","#393b79","#e7ba52","#fd8d3c","#843c39"]);
+                  .range(["#9ecae1", "#74c476", "#d62728","#393b79","#e7ba52","#fd8d3c","#843c39"]);
 
     var imgsLinks = ["images/argentinian-flag-large.png","images/1280px-Flag_of_Brazil.svg.png","images/english-flag-graphic.png","images/french-flag-large.png","images/german-flag-large.png","images/italian-flag-medium.png","images/Flag_of_Spain.svg.png"];
-
-    
 
     createCircles(blocksArgentina);
     createCircles(blocksBrazil);
@@ -1048,12 +1008,6 @@ d3.csv("player_ranking.csv", function (error, data) {
     createCircles(blocksFrance);
     createCircles(blocksEngland);
 
-    // $(function() {
- //     $( '[data-toggle="tooltip"]').tooltip();
- //     });
-    //appendImage(imgsLinks);
-
-
     function createCircles(blocks){
         b = blocks  // an array of array of points
 
@@ -1062,32 +1016,26 @@ d3.csv("player_ranking.csv", function (error, data) {
             return !(arr.length == 0);
         })
         
-        //console.log(new_b);
-        new_b.forEach( function (p){   // p is an array of players who appeared in the same year for the
-            // console.log("p")
-            // console.log(p)
-        i = 0
-        while (i<p.length){
-            
-            svg.append("circle")
-            .data(p)
-            .attr("class", p[i].label)
-            .attr("title", p[i].label)
-            .attr("class","tooltip")
-            .attr("title", p[i].label + " | " + p[i].x+ " | " + p[i].y)
-            .attr("cx", xScale1(p[i].x)+(i*17)) 
-            .attr("cy", yScale1(p[i].y)+18)
-            .attr("r", 8)
-            .style("fill", color(blocks))
-            .style("opacity", 1);
-            
-            i++
-          
-        }
-    });
-
+        new_b.forEach( function (p)// p is an array of players who appeared in the same year for the
+        {   
+             i = 0
+             while (i<p.length)
+             {
+                svg.append("circle")
+                .data(p)
+                .attr("class", p[i].label)
+                .attr("title", p[i].label)
+                .attr("class","tooltip")
+                .attr("title", p[i].label + " | " + p[i].x+ " | " + p[i].y)
+                .attr("cx", xScale1(p[i].x)+(i*17)) 
+                .attr("cy", yScale1(p[i].y)+18)
+                .attr("r", 8)
+                .style("fill", color(blocks))
+                .style("opacity", 1);
+             i++
+             }
+        });
     }
-
 
     for (var i=0; i<uniqueTeams.length;i++){
         svg.append("svg:image")
