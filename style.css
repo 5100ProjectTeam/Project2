@@ -10,7 +10,7 @@
 }
 
 html{height:100%;}
-body 
+body
     {
     font-family:"LinotypeUniversW01-Thin"!important;
     margin:0 auto;
@@ -26,23 +26,23 @@ label{font-size: 0.9em; }
 path.text{font-size: 12px;}
 .tick text{ font-size: 12px;  }
 .tick line{opacity: 0.2;}
-.axis path, .axis line 
+.axis path, .axis line
   {
     fill: none;
     stroke: #000;
     shape-rendering: crispEdges;
   }
-.line 
+.line
   {
     fill: none;
     stroke: steelblue;
     stroke-width: 1.5px;
   }
-#visualization1 
+#visualization1
 {
   width:100%;
 font-family:"LinotypeUniversW01-Thin";
-}   
+}
 #visualization2
     {
       clear: both;
@@ -52,9 +52,9 @@ font-family:"LinotypeUniversW01-Thin";
       text-align:center;
       font-family:"LinotypeUniversW01-Thin";
 
-    }   
+    }
 #flags_column_one, #flags_column_two, #flags_column_three
-  {  
+  {
       display: inline-block;
       position: relative;
       margin:0 auto;
@@ -65,7 +65,7 @@ font-family:"LinotypeUniversW01-Thin";
     text-align: center;
     width:1350px;
     height:100%;
-  } 
+  }
 .germanytext, .argentinatext, .italytext, .braziltext, .spaintext, .francetext, .englandtext
   {
     text-anchor:middle;
@@ -78,53 +78,56 @@ font-family:"LinotypeUniversW01-Thin";
   text-align: center;
 }
 
-  
+
 
 /* --------------------------- JING CSS ------------------ */
 
-#pieChart {    
- padding:100px 0px 0px 50px;
+#pieChart {
+ padding:50px 10px 10px 150px;
   width:400px;
-  height: 400px; 
+  height: 400px;
   display:inline-block;
   text-align: center;
   margin:0 auto;
+
 }
 .h2{
   color: steelblue;
-  font-size: 14px; 
+  font-size: 14px;
+  font: bold;
 }
 
-
 .xAxis {
-    
     font-size: 10px;
     fill: black;
-}  
+}
 
 .yAxis {
-    
+
     font-size: 10px;
     fill: white;
 }
+
 #barChart {
- 
+
   text-align: center;
   display: inline-block;
   margin:0 auto;
-  padding-left: 150px;
+  padding-left: 180px;
+
 }
 
 .slice {
    font-size: 12pt;
   /* font-family: Verdana;*/
    fill: white; //svg specific - instead of color
-   font-weight: bold; 
-      } 
-      
+   font-weight: bold;
+      }
+
 .title {
   /* font-family: Verdana;*/
-    font-size: 15px;  
+    font-size: 15px;
+    font: bold;
 }
   .bar {
   fill: orange;
@@ -134,7 +137,7 @@ font-family:"LinotypeUniversW01-Thin";
   fill: orangered ;
 }
 
-/* --------------- KELLEY CSS ---------------- */ 
+/* --------------- KELLEY CSS ---------------- */
 #player, #plot{text-align: center;}
 .graph2svg {  opacity: 0.7; margin-left:40px;}
 .Xaxis path { fill: none; stroke: black;}
