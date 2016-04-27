@@ -83,7 +83,7 @@ font-family:"LinotypeUniversW01-Thin";
 /* --------------------------- JING CSS ------------------ */
 
 #pieChart {
- padding:50px 10px 10px 150px;
+  padding:50px 10px 10px 150px;
   width:400px;
   height: 400px;
   display:inline-block;
@@ -94,7 +94,7 @@ font-family:"LinotypeUniversW01-Thin";
 .h2{
   color: steelblue;
   font-size: 14px;
-  font: bold;
+  font-weight: bold;
 }
 
 .xAxis {
@@ -103,18 +103,15 @@ font-family:"LinotypeUniversW01-Thin";
 }
 
 .yAxis {
-
     font-size: 10px;
     fill: white;
 }
 
 #barChart {
-
   text-align: center;
   display: inline-block;
   margin:0 auto;
   padding-left: 180px;
-
 }
 
 .slice {
@@ -127,7 +124,7 @@ font-family:"LinotypeUniversW01-Thin";
 .title {
   /* font-family: Verdana;*/
     font-size: 15px;
-    font: bold;
+    font-weight: bold;
 }
   .bar {
   fill: orange;
