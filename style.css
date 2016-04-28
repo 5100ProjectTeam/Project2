@@ -76,6 +76,7 @@ path.text{font-size: 12px;}
 .bar:hover {fill: orangered ;}
 .italics{font-style: italic;}
 #text_gdp{margin-bottom:30px;}
+#text_gdp p{font-weight: lighter;}
 #text_culture p{font-weight:lighter;}
 p.conclusion
 {
