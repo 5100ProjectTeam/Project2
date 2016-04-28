@@ -9,6 +9,7 @@ h4,h2,h1{ text-align: center; }
 h4.bigger_note{font-size:0.8em;}
 h2{font-weight: 1900;}
 h1.viz1header{margin:50px 0px 10px 0px;}
+h1.conclusion{margin-top: 50px;}
 h4.note{font-size: 0.7em;}
 label
   {
@@ -76,6 +77,15 @@ path.text{font-size: 12px;}
 .italics{font-style: italic;}
 #text_gdp{margin-bottom:30px;}
 #text_culture p{font-weight:lighter;}
+p.conclusion
+{
+  text-align:justify;
+  margin:20px auto;
+  padding:20px 0px 20px 0px;
+  width:75%;
+  border-top:2px solid black;
+  border-bottom: 2px solid black;
+}
 
 #pieChart {
   margin:50px 10px 10px 130px;
@@ -119,13 +129,14 @@ path.text{font-size: 12px;}
     font-weight: bold;
 }
 
-#text_culture, #text_gdp, p.conclusion
+#text_culture, #text_gdp, p.introduction
 {
   padding:20px 0px 20px 0px;
   width:75%;
   margin: 0 auto;
- border-top:2px solid black;
- border-bottom: 2px solid black;
+  border-top:2px solid black;
+  border-bottom: 2px solid black;
+  text-align: justify;
 }
 
 
