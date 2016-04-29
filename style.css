@@ -72,14 +72,13 @@ path.text{font-size: 12px;}
   text-align: center;
 }
 
-/* --------------------------- JING CSS ------------------ */
 .bar {fill: orange;}
 .bar:hover {fill: orangered ;}
 .italics{font-style: italic;}
 #text_gdp{margin-bottom:30px;}
 #text_gdp p{font-weight: lighter;}
-#text_culture p, p.introduction, p.conclusion{font-weight:lighter;}
-
+#text_starplayers,#text_culture p, p.introduction, p.conclusion{font-weight:lighter;}
+p.introduction{font-size:1.2em; font-style:italic;}
 p.conclusion
 {
   text-align:justify;
@@ -142,8 +141,6 @@ p.conclusion
   text-align: justify;
 }
 
-
-/* --------------- KELLEY CSS ---------------- */
 #player, #plot{text-align: center;}
 .graph2svg {  opacity: 0.7; margin:0px 0px 40px 40px;}
 .Xaxis path { fill: none; stroke: black;}
