@@ -87,6 +87,7 @@ path.text{font-size: 12px;}
     background-size: 100% 745px;
     background-repeat:no-repeat;
     margin-top: 50px;
+    width: 100%;
   } 
 .germanytext, .argentinatext, .italytext, .braziltext, .spaintext, .francetext, .englandtext
   {
@@ -156,7 +157,7 @@ p.conclusion
     font-weight: bold;
 }
 
-#text_culture, #text_gdp, p.introduction
+#text_culture, #text_gdp, #text_starplayers, p.introduction
 {
   padding:20px 0px 20px 0px;
   width:75%;
