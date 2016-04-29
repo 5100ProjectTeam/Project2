@@ -7,11 +7,11 @@ body
     background-color: #ecf0f1;
     }
 h4,h2,h1{ text-align: center; }
-h4.bigger_note{font-size:0.8em;}
+h4.bigger_note{font-size:0.9em;}
 h2{font-weight: 1900;}
 h1.viz1header{margin:50px 0px 10px 0px;}
 h1.conclusion{margin-top: 50px;}
-h4.note{font-size: 0.7em;}
+h4.note{font-size: 0.9em;}
 .footer{margin-bottom: 150px;}
 text{ font-family: "Trebuchet MS", Helvetica, sans-serif; font-weight: lighter; }
 .x.axis path {display: none;}
@@ -24,7 +24,13 @@ path.text{font-size: 12px;}
 #text_gdp{margin-bottom:30px;}
 #text_gdp p{font-weight: lighter;}
 #text_starplayers,#text_culture p, p.introduction, p.conclusion{font-weight:lighter;}
-p.introduction{font-size:1.2em; font-style:italic;}
+p.introduction{
+  font-size:1.6em; font-style:italic; padding:20px 0px 20px 0px;
+  width:75%;
+  margin: 0 auto;
+  border-top:2px solid black;
+  border-bottom: 2px solid black;
+  text-align: justify;}
 #barChart svg{margin-bottom: 50px;}
 #player, #plot{text-align: center;}
 .graph2svg {  opacity: 0.7; margin:0px 0px 40px 40px;}
@@ -109,10 +115,11 @@ p.conclusion
   width:75%;
   border-top:2px solid black;
   border-bottom: 2px solid black;
+  font-size: 1.2em;
 }
 
 #pieChart {
-  margin:50px 10px 10px 130px;
+  margin:50px 10px 10px 10px;
   width:400px;
   height: 400px;
   display:inline-block;
@@ -157,7 +164,7 @@ p.conclusion
     font-weight: bold;
 }
 
-#text_culture, #text_gdp, #text_starplayers, p.introduction
+#text_culture, #text_gdp, #text_starplayers
 {
   padding:20px 0px 20px 0px;
   width:75%;
@@ -165,6 +172,7 @@ p.conclusion
   border-top:2px solid black;
   border-bottom: 2px solid black;
   text-align: justify;
+  font-size: 1.2em;
 }
 
 /* --------------- KELLEY CSS ---------------- */
