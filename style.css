@@ -11,6 +11,7 @@ h2{font-weight: 1900;}
 h1.viz1header{margin:50px 0px 10px 0px;}
 h1.conclusion{margin-top: 50px;}
 h4.note{font-size: 0.7em;}
+.footer{margin-bottom: 150px;}
 label
   {
   font-size: 0.9em;
@@ -77,7 +78,8 @@ path.text{font-size: 12px;}
 .italics{font-style: italic;}
 #text_gdp{margin-bottom:30px;}
 #text_gdp p{font-weight: lighter;}
-#text_culture p{font-weight:lighter;}
+#text_culture p, p.introduction, p.conclusion{font-weight:lighter;}
+
 p.conclusion
 {
   text-align:justify;
