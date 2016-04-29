@@ -84,7 +84,8 @@ path.text{font-size: 12px;}
     /*width:1350px;*/
     height:100%;
     background-image: url("images/footballfield2.jpg");
-    background-size: 1380px 745px;
+    background-size: 100% 745px;
+    background-repeat:no-repeat;
     margin-top: 50px;
   } 
 .germanytext, .argentinatext, .italytext, .braziltext, .spaintext, .francetext, .englandtext
