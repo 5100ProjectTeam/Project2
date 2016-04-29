@@ -56,9 +56,14 @@
          </div>
     </div>
 
-      <h1 class="title_star">Number of Star Players in Each Team</h1>
+      <h1 class="title_star">Does Number of Star Players Affect Chance of Winning?
+</h1>
       <h4 class="bigger_note">(Hover over the circles to see Who!)</h4>
-       <p class="introduction">
+       <p id="text_culture">
+        In order to understand whether the number of star players in each team affects the winning of the team, we sampled the top footballers (1962 - 2014) from two dataset, <a href="http://www.theguardian.com/news/datablog/2014/may/29/the-world-cups-top-100-footballers-by-nationality-goals-scored-and-votes?view=desktop" class="italics"> the World Cup's top 100 footballers</a> and <a href="http://www.theguardian.com/news/datablog/2014/may/29/the-world-cups-top-100-footballers-by-nationality-goals-scored-and-votes?view=desktop" class="italics">the World's Best Footballers in 2013 </a>, from The Guardian. Since the World Cup's top 100 footballers dataset does not have the data of 2014, we chose The World's Best Footballers in 2013 dataset  as a complementary dataset, which evaluates the overall performance of top footballers before the 2014 World Cup. </br>
+
+Our visualization confirms the intuitive assumption that the number of the star players has positive correlation with the winning of the team. 
+
        </p>
       <div id="plot2"></div>
       <div id="player"></div>
@@ -71,9 +76,10 @@
             It seems all the seven countries have roughly similar percentage of football players, apps. 7%, with the exception of Germany 19.8%. Stadium capacty per capita fall within a narrow range amount these seven countries. On the other hand, Brazil and Argentina seem to have reaped a significant portion of U20 winners. 
         </p>
     </div>
-
-    <div id="pieChart"></div>
-    <div id="barChart"></div>  
+    <div id ="charts_wrapper">
+        <div id="pieChart"></div>
+        <div id="barChart"></div> 
+    </div> 
     
     <h1 class="conclusion"> Conclusion </h1>
         <p class="conclusion">

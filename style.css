@@ -1,9 +1,10 @@
 html{height:100%;}
 body 
     {
-    margin:0 auto;
+    width:100%;
     font-weight:bolder;
     font-family: "Trebuchet MS", Helvetica, sans-serif;
+    background-color: #ecf0f1;
     }
 h4,h2,h1{ text-align: center; }
 h4.bigger_note{font-size:0.8em;}
@@ -17,7 +18,7 @@ label
   font-family: "Trebuchet MS", Helvetica, sans-serif;  
   padding-left:10px;
   }
-
+div { text-align: center;}
 text{ font-family: "Trebuchet MS", Helvetica, sans-serif; font-weight: lighter; }
 .x.axis path {display: none;}
 path.text{font-size: 12px;}
@@ -56,13 +57,17 @@ path.text{font-size: 12px;}
 #flags_wrapper
   {
     text-align: center;
-    width:1350px;
+    /*width:1350px;*/
     height:100%;
+    background-image: url("images/footballfield2.jpg");
+    background-size: 1380px 745px;
+    background: 
   } 
 .germanytext, .argentinatext, .italytext, .braziltext, .spaintext, .francetext, .englandtext
   {
     text-anchor:middle;
     display:none;
+    fill: #fff;
   }
 
 #checkboxes
@@ -118,6 +123,10 @@ p.conclusion
 
 #barChart svg{margin-bottom: 50px;}
 
+#charts_wrapper { text-align: center;
+    /*width:1350px;*/
+    height:100%;}
+
 .slice {
    font-size: 12pt;
    fill: white; //svg specific - instead of color
@@ -142,7 +151,7 @@ p.conclusion
 
 /* --------------- KELLEY CSS ---------------- */
 #player, #plot{text-align: center;}
-.graph2svg {  opacity: 0.7; margin:0px 0px 40px 40px;}
+.graph2svg {  opacity: 0.9; margin:0px 0px 40px 40px;}
 .Xaxis path { fill: none; stroke: black;}
 .Xaxis line { stroke: black; }
 .Xaxis text { font-size: small; }
