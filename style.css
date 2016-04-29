@@ -12,19 +12,35 @@ h1.viz1header{margin:50px 0px 10px 0px;}
 h1.conclusion{margin-top: 50px;}
 h4.note{font-size: 0.7em;}
 .footer{margin-bottom: 150px;}
+text{ font-family: "Trebuchet MS", Helvetica, sans-serif; font-weight: lighter; }
+.x.axis path {display: none;}
+path.text{font-size: 12px;}
+.tick line{opacity: 0.2;}
+.tick text{ font-size: 12px;}
+.bar {fill: orange;}
+.bar:hover {fill: orangered ;}
+.italics{font-style: italic;}
+#text_gdp{margin-bottom:30px;}
+#text_gdp p{font-weight: lighter;}
+#text_starplayers,#text_culture p, p.introduction, p.conclusion{font-weight:lighter;}
+p.introduction{font-size:1.2em; font-style:italic;}
+#barChart svg{margin-bottom: 50px;}
+#player, #plot{text-align: center;}
+.graph2svg {  opacity: 0.7; margin:0px 0px 40px 40px;}
+.Xaxis path { fill: none; stroke: black;}
+.Xaxis line { stroke: black; }
+.Xaxis text { font-size: small; }
+.Yaxis text { font-size: small; }
+.Yaxis line { stroke: black; }
+.Yaxis path { fill: none; stroke: black;}
+path.residual { stroke: black; opacity: 0.2; stroke-width: 5; }
+path.square { fill: black; opacity: 0.0; }
 label
   {
   font-size: 0.9em;
   font-family: "Trebuchet MS", Helvetica, sans-serif;  
   padding-left:10px;
   }
-
-text{ font-family: "Trebuchet MS", Helvetica, sans-serif; font-weight: lighter; }
-.x.axis path {display: none;}
-path.text{font-size: 12px;}
-.tick line{opacity: 0.2;}
-.tick text{ font-size: 12px;}
-
 .axis path, .axis line 
   {
     fill: none;
@@ -37,7 +53,6 @@ path.text{font-size: 12px;}
     stroke: steelblue;
     stroke-width: 1.5px;
   }
-
 #visualization1 {width:100%;}  
 #visualization2
     {
@@ -59,26 +74,19 @@ path.text{font-size: 12px;}
     text-align: center;
     width:1350px;
     height:100%;
+    margin-top: 50px;
   } 
 .germanytext, .argentinatext, .italytext, .braziltext, .spaintext, .francetext, .englandtext
   {
     text-anchor:middle;
     display:none;
   }
-
 #checkboxes
 {
   margin: 10px 0px 20px 0px;
   text-align: center;
 }
 
-.bar {fill: orange;}
-.bar:hover {fill: orangered ;}
-.italics{font-style: italic;}
-#text_gdp{margin-bottom:30px;}
-#text_gdp p{font-weight: lighter;}
-#text_starplayers,#text_culture p, p.introduction, p.conclusion{font-weight:lighter;}
-p.introduction{font-size:1.2em; font-style:italic;}
 p.conclusion
 {
   text-align:justify;
@@ -117,9 +125,6 @@ p.conclusion
   display: inline-block;
   position:relative;
 }
-
-#barChart svg{margin-bottom: 50px;}
-
 .slice {
    font-size: 12pt;
    fill: white; //svg specific - instead of color
@@ -140,17 +145,6 @@ p.conclusion
   border-bottom: 2px solid black;
   text-align: justify;
 }
-
-#player, #plot{text-align: center;}
-.graph2svg {  opacity: 0.7; margin:0px 0px 40px 40px;}
-.Xaxis path { fill: none; stroke: black;}
-.Xaxis line { stroke: black; }
-.Xaxis text { font-size: small; }
-.Yaxis text { font-size: small; }
-.Yaxis line { stroke: black; }
-.Yaxis path { fill: none; stroke: black;}
-path.residual { stroke: black; opacity: 0.2; stroke-width: 5; }
-path.square { fill: black; opacity: 0.0; }
 .d3-tip {
   line-height: 1;
   font-weight: bold;
