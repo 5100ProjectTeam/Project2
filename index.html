@@ -14,12 +14,13 @@
     <body>
 
     <div id="visualization1">
-    	<h1 class="viz1header">FIFA WORLD CUP TEAMS OVER THE YEARS (1960 - 2014) </h1>
-         <p class="introduction">
-        </p>
-        <h4 class="bigger_note">(Click on each of the flags to find out more)</h4>
-        <h4 class="note"> * Number of wins are calculated post 1960 due to non-availability of certain data needed for further analysis, before 1960 </h4>
-
+    	<h1 class="viz1header"> <i>When Dreams Come True: </i></h1>
+			<h1> Decomposing FIFA World Cup Champions (1960 - 2014) </h1>
+            <h4 class="bigger_note">(Click on each of the flags to find out more)</h4>
+            <h4 class="note"> * Number of wins are calculated post 1960 due to non-availability of certain data needed for further analysis, before 1960 </h4>
+             <p class="introduction">
+			 Decomposing FIFA World Cup Championship from three aspects: Economics as represented by the Country's GDP, Human Talent factor as represented by exceptional Star Players in each team, and Football Culture as represented by the popuarity of this game among the general public, including the youth, the general public, and oridinary football players.  
+             </p>
     	<div id="flags_wrapper">
             <div id="flags_column_one">   
 	             <div id="germany"></div>
@@ -37,11 +38,12 @@
          </div>
     </div> 
     <div id="visualization2">
-        <h1> Does the GPD affect team's performance? </h1>
+        <h1> GDP Over Four Decades </h1>
         <h4 class="bigger_note"> (Click on the checkboxes below to plot the graphs) </h4>
         <h4 class="note"> * GDP starts post 1960 due to non-availability of data before 1960. Also data N/A for the years 1960 and 1964 (Germany) </h4>
          <div id="text_gdp">
         <p>
+        The relationship between GDP and winning is complex. At first look, there seems to be a positive correlation post 1972 when the gap of GDP becomes most apparent. However, for Brazil and Argentina, two countries that reaped two or more world cups, their GDPs were among the bottom at the time of their championship. Hence, it may be safe to say GDP function as a negative filter in that strong GDPs not necessarily correlate with strong performance in World CUP, but weak GDP is not likely to preclude a championship. 
             
         </p>
         </div>
@@ -59,21 +61,20 @@
       <h1 class="title_star">Does Number of Star Players Affect Chance of Winning?
 </h1>
       <h4 class="bigger_note">(Hover over the circles to see Who!)</h4>
+
        <p id="text_culture">
         In order to understand whether the number of star players in each team affects the winning of the team, we sampled the top footballers (1962 - 2014) from two dataset, <a href="http://www.theguardian.com/news/datablog/2014/may/29/the-world-cups-top-100-footballers-by-nationality-goals-scored-and-votes?view=desktop" class="italics"> the World Cup's top 100 footballers</a> and <a href="http://www.theguardian.com/news/datablog/2014/may/29/the-world-cups-top-100-footballers-by-nationality-goals-scored-and-votes?view=desktop" class="italics">the World's Best Footballers in 2013 </a>, from The Guardian. Since the World Cup's top 100 footballers dataset does not have the data of 2014, we chose The World's Best Footballers in 2013 dataset  as a complementary dataset, which evaluates the overall performance of top footballers before the 2014 World Cup. </br>
 
 Our visualization confirms the intuitive assumption that the number of the star players has positive correlation with the winning of the team. 
 
-       </p>
       <div id="plot2"></div>
       <div id="player"></div>
       <h1> Conceptual Representation of Football Culture </h1> 
 	     <h4 class="bigger_note">(Click on each segment in the Pie Chart to find out more)</h4>
       <div id="text_culture">
         <p>
-            Football culture is analyzed through three indexes: percentage of registered and unregistered players among the general population; percentage of the total stadium capacity as measured against the total population of the country; percentage of U20 World Cups won by each country against the total number of U20 Cups. The data come from <a href="http://www.fifa.com/worldfootball/bigcount/index.html" class="italics">FIFA’s 2006 Big Count report.</a>
-            
-            It seems all the seven countries have roughly similar percentage of football players, apps. 7%, with the exception of Germany 19.8%. Stadium capacty per capita fall within a narrow range amount these seven countries. On the other hand, Brazil and Argentina seem to have reaped a significant portion of U20 winners. 
+            Football culture is analyzed in three dimemsions: percentage of general players in each country; percentage of the total stadium capacity as measured against the population of each country; percentage of U20 World Cups won by each country with regard to total U20 Championships. We consider these dimensions as suggestive of how entrenched football culture is in these countries. 
+			Data from <a href="http://www.fifa.com/worldfootball/bigcount/index.html" class="italics">FIFA’s 2006 Big Count report.</a> show the seven countries are similar in most of these areas. What stands out is the percentage of general football players in Germany, 20%, whereas other countries are about 7%. On the other hand, Brazil and Argentina seem to have reaped a significant portion of U20 winners. 
         </p>
     </div>
     <div id ="charts_wrapper">
@@ -81,9 +82,13 @@ Our visualization confirms the intuitive assumption that the number of the star 
         <div id="barChart"></div> 
     </div> 
     
+    <div class="footer">
     <h1 class="conclusion"> Conclusion </h1>
         <p class="conclusion">
+			Our project tried to decompose championship from three aspects, including economics, talented players and football culture. We find championship is more likely to occur when the team contains more star players and is relatively high in GDP ranking. Germany's significantly high portion of players among general public may be one factor that contributes to its championship in 2014, but as it is a single case with a single factor, we cannot make a strong argument there.  
+			  
         </p>
+    </div>
    
         <script type="text/javascript">
 
